@@ -1,6 +1,6 @@
 import React from 'react'
 import { Shield, Clock, CreditCard, HeadphonesIcon } from 'lucide-react';
-import styles from './Features.module.css';
+import styles from './Features.module.css'; 
 
 const Features = () => {
 
