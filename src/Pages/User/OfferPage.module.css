@@ -1,0 +1,271 @@
+.offerPage {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.banner {
+  position: relative;
+  height: 300px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.bannerImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bannerContent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 50px;
+  color: white;
+}
+
+.bannerTitle {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.bannerSubtitle {
+  font-size: 18px;
+  max-width: 500px;
+  margin-bottom: 24px;
+}
+
+.bannerButton {
+  background-color: #FF5733;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: fit-content;
+}
+
+.bannerButton:hover {
+  background-color: #c4482cdd;
+}
+
+.sectionTitle {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #333;
+}
+
+.offerGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.offerCard {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+  background-color: white;
+}
+
+.offerCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.offerImage {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.offerContent {
+  padding: 16px;
+}
+
+.offerTag {
+  display: inline-block;
+  background-color: #e6f7ff;
+  color: #FF5733;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+
+.offerTitle {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.offerDescription {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.offerPrice {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.priceTag {
+  font-size: 20px;
+  font-weight: 700;
+  color: #FF5733;
+}
+
+.originalPrice {
+  font-size: 14px;
+  color: #999;
+  text-decoration: line-through;
+  margin-left: 8px;
+}
+
+.offerButton {
+  background-color: transparent;
+  color: #FF5733;
+  border: 1px solid #FF5733;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.offerButton:hover {
+  background-color: #FF5733;
+  color: white;
+}
+
+.categories {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 32px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.categoryButton {
+  background-color: #f5f5f5;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 100px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.categoryButton:hover,
+.categoryButton.active {
+  background-color: #FF5733;
+  color: white;
+}
+
+.newsletter {
+  background-color: #f5f7ff;
+  border-radius: 16px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.newsletterTitle {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.newsletterDescription {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 24px;
+  max-width: 600px;
+}
+
+.newsletterForm {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.newsletterInput {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+}
+
+.newsletterButton {
+  background-color: #FF5733;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.newsletterButton:hover {
+  background-color: #c4482cdd;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 40px;
+  border-top: 1px solid #eee;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .navigation {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+
+  .bannerContent {
+    padding: 0 20px;
+  }
+
+  .bannerTitle {
+    font-size: 28px;
+  }
+
+  .offerGrid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+
+  .newsletterForm {
+    flex-direction: column;
+  }
+}

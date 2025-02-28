@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './Offers.module.css'
+import { Link } from 'react-router-dom';
 
 const Offers = () => {
 
@@ -52,7 +53,7 @@ const Offers = () => {
         ))}
       </div>
       
-      <button className={styles.viewAllButton}>View All Offers</button>
+      <button className={styles.viewAllButton}><Link to={'/offer'} >View All Offers</Link></button>
     </section>
   );
 }
