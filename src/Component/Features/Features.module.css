@@ -1,0 +1,70 @@
+.featuresSection {
+    padding: 4rem 5%;
+    background-color: var(--light-gray);
+  }
+  
+  .sectionTitle {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+  }
+  
+  .sectionSubtitle {
+    text-align: center;
+    color: var(--dark-gray);
+    margin-bottom: 3rem;
+  }
+  
+  .featuresGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+  
+  .featureCard {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    transition: var(--transition);
+  }
+  
+  .featureCard:hover {
+    transform: translateY(-5px);
+  }
+  
+  .featureIcon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background-color: rgba(0, 112, 243, 0.1);
+    color: var(--primary-color);
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+  }
+  
+  .featureTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  .featureDescription {
+    color: var(--dark-gray);
+    line-height: 1.6;
+  }
+  
+  @media (max-width: 768px) {
+    .featuresSection {
+      padding: 3rem 1rem;
+    }
+    
+    .sectionTitle {
+      font-size: 1.75rem;
+    }
+  }

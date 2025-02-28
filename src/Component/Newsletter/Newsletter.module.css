@@ -1,0 +1,79 @@
+.newsletterSection {
+    padding: 4rem 5%;
+    background-color: var(--light-gray);
+    text-align: center;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+  }
+  
+  .sectionDescription {
+    color: var(--dark-gray);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .newsletterForm {
+    display: flex;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .newsletterInput {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--medium-gray);
+    border-right: none;
+    border-radius: 4px 0 0 4px;
+    font-size: 1rem;
+  }
+  
+  .newsletterButton {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 0 4px 4px 0;
+    font-weight: 500;
+    transition: var(--transition);
+  }
+  
+  .newsletterButton:hover {
+    background-color: #0062d6;
+  }
+  
+  .privacyNote {
+    font-size: 0.875rem;
+    color: var(--dark-gray);
+    margin-top: 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .newsletterSection {
+      padding: 3rem 1rem;
+    }
+    
+    .sectionTitle {
+      font-size: 1.75rem;
+    }
+    
+    .newsletterForm {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .newsletterInput {
+      border-radius: 4px;
+      border-right: 1px solid var(--medium-gray);
+    }
+    
+    .newsletterButton {
+      border-radius: 4px;
+    }
+  }

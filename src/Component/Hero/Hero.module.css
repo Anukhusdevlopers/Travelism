@@ -1,0 +1,127 @@
+.heroSection {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80');
+    background-size: cover;
+    background-position: center;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+  
+  .heroContent {
+    max-width: 800px;
+  }
+  
+  .heroTitle {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  
+  .heroSubtitle {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+  }
+  
+  .searchContainer {
+    background-color: var(--white);
+    border-radius: 8px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 1000px;
+    box-shadow: var(--box-shadow);
+  }
+  
+  .tabsContainer {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--medium-gray);
+    padding-bottom: 1rem;
+  }
+  
+  .tab {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--dark-gray);
+    transition: var(--transition);
+  }
+  
+  .activeTab {
+    background-color: var(--primary-color);
+    color: var(--white);
+  }
+  
+  .searchForm {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  
+  .formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .formLabel {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-color);
+  }
+  
+  .formInput {
+    padding: 0.75rem;
+    border: 1px solid var(--medium-gray);
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .searchButton {
+    grid-column: 1 / -1;
+    padding: 0.75rem;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: var(--transition);
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .searchButton:hover {
+    background-color: #0062d6;
+  }
+  
+  @media (max-width: 768px) {
+    .heroTitle {
+      font-size: 2rem;
+    }
+    
+    .heroSubtitle {
+      font-size: 1rem;
+    }
+    
+    .searchContainer {
+      padding: 1rem;
+    }
+    
+    .tabsContainer {
+      flex-wrap: wrap;
+    }
+  }
