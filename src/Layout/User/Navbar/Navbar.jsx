@@ -46,7 +46,7 @@ const Navbar = () => {
             <span>Holiday Packages</span>
           </li>
           </Link>
-          <Link>
+          <Link to={'/destination'}>
           <li className={styles.navLink}>
             <MapPin size={16} />
             <span>Destinations</span>
