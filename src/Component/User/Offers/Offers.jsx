@@ -10,14 +10,14 @@ const Offers = () => {
       title: 'Bali Beach Getaway',
       description: 'Enjoy 5 nights at a luxury resort with complimentary breakfast and spa treatment.',
       price: '$899',
-      image: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
+      image: 'https://riyaztourandtravels.com/about/01.webp'
     },
     {
       id: 2,
       title: 'European Adventure',
       description: 'Visit 4 countries in 10 days with guided tours and premium accommodations.',
       price: '$1,299',
-      image: 'https://images.unsplash.com/photo-1519677100203-a0e668c92439?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
+      image: 'https://riyaztourandtravels.com/slider/slider-2.jpg'
     },
     {
       id: 3,

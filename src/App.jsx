@@ -6,6 +6,9 @@ import Home from "./Pages/User/Home";
 import Holiday from "./Pages/User/Holiday";
 import FlightBooking from "./Pages/User/Flight";
 import DestinationPage from "./Pages/User/Destination";
+import HotelBooking from "./Pages/User/HotelBooking";
+import CarBooking from "./Pages/User/CarBooking";
+import TrainsBooking from "./Pages/User/TrainsBooking";
 
 const App = () => {
   return (
@@ -17,6 +20,9 @@ const App = () => {
           <Route path="/holiday" element={<Holiday />} />
           <Route path="/flight-booking" element={<FlightBooking />} />
           <Route path="/destination" element={<DestinationPage />} />
+          <Route path="/hotel" element={<HotelBooking/>}/>
+          <Route path="/carbooking" element={<CarBooking/>}/>
+          <Route path="/train" element={<TrainsBooking/>} />
         </Route>
       </Routes>
     </div>
