@@ -9,6 +9,7 @@ import About from "./Pages/User/About";
 import Services from "./Pages/User/Services";
 import Dashboard from "./Pages/Admin/Dashboard";
 import AdminLayout from "./Layout/Admin/Layout";
+import AdminLogin from "./Pages/Admin/Login";
   const App = () => {
   return (
     <div>
@@ -26,6 +27,7 @@ import AdminLayout from "./Layout/Admin/Layout";
         <Route path="/admin" element={<AdminLayout />} >
         
           <Route path="dashboard" element={<Dashboard />} />
+          <Route path="admin-login" element={<AdminLogin />} />
         </Route>
 
       </Routes>
