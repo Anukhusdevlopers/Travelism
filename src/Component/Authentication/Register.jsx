@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X } from 'lucide-react';
 import './RegistrationPopup.css';
+import { SignUp } from '../../services/user.service';
 
 // interface RegistrationPopupProps {
 //   isOpen: boolean;
@@ -36,6 +37,7 @@ const RegistrationPopup = ({ isOpen, onClose }) => {
     declaration: false,
   });
 
+  console.log(formData);
   const handleChange = (e) => {
     const { name, value, type } = e.target;
     
@@ -45,13 +47,22 @@ const RegistrationPopup = ({ isOpen, onClose }) => {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Here you would typically send the data to your backend
-    alert('Registration submitted successfully!');
-    onClose();
-  };
+    const handleSubmit = async (e) => {
+      e.preventDefault(); // Prevent form reload
+    
+      try {
+        const response = await SignUp(formData); // Call API function
+        console.log("Success:", response);
+        alert("User created successfully!"); // Show success message
+      } catch (error) {
+        console.error("Error creating user:", error.response?.data || error.message);
+        alert(error.response?.data?.message || "Failed to create user."); // Show error message
+      }
+    
+      onClose(); // Close modal/form after submission
+    };
+    
+    
 
   const nextStep = () => {
     setCurrentStep(currentStep + 1);
@@ -139,7 +150,7 @@ const RegistrationPopup = ({ isOpen, onClose }) => {
                     required
                   >
                     <option value="">Select Gender</option>
-                    <option value="male">Male</option>
+                    <option value="Male">Male</option>
                     <option value="female">Female</option>
                     <option value="other">Other</option>
                   </select>

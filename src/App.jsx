@@ -7,6 +7,8 @@ import Holiday from "./Pages/User/Holiday";
 import Contact from "./Pages/User/Contact";
 import About from "./Pages/User/About";
 import Services from "./Pages/User/Services";
+import Dashboard from "./Pages/Admin/Dashboard";
+import AdminLayout from "./Layout/Admin/Layout";
   const App = () => {
   return (
     <div>
@@ -18,7 +20,14 @@ import Services from "./Pages/User/Services";
           <Route path="/services" element={<Services />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={< Contact />} />
+
         </Route>
+
+        <Route path="/admin" element={<AdminLayout />} >
+        
+          <Route path="dashboard" element={<Dashboard />} />
+        </Route>
+
       </Routes>
     </div>
   );
