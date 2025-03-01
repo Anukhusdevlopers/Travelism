@@ -17,7 +17,7 @@
   }
   
   .heroTitle {
-    font-size: 3rem;
+    font-size: 4rem;
     font-weight: 700;
     margin-bottom: 1rem;
   }
@@ -110,7 +110,7 @@
   
   @media (max-width: 768px) {
     .heroTitle {
-      font-size: 2rem;
+      font-size: 3rem;
     }
     
     .heroSubtitle {

@@ -14,7 +14,7 @@ const Hero = () => {
           </p>
         </div>
   
-        <div className={styles.searchContainer}>
+        {/* <div className={styles.searchContainer}>
           <div className={styles.tabsContainer}>
             <div 
               className={`${styles.tab} ${activeTab === 'flights' ? styles.activeTab : ''}`}
@@ -196,7 +196,7 @@ const Hero = () => {
               <span>Search</span>
             </button>
           </form>
-        </div>
+        </div> */}
       </section>
     );
 }

@@ -31,18 +31,18 @@ const Navbar = ({ setIsPopupOpen }) => {
       <ul className={styles.navLinks}>
         {[
           { path: "/", icon: <House size={16} />, label: "Home" },
-          { path: "/about", icon: <House size={16} />, label: "About" },
-          { path: "/services", icon: <House size={16} />, label: "Services" },
+          { path: "/about", label: "About" },
+          { path: "/services", label: "Services" },
           {
             path: "/holiday",
             icon: <Umbrella size={16} />,
-            label: "Holiday Packages",
+            label: "Packages",
           },
-          { path: "/contact", icon: <House size={16} />, label: "Contact Us" },
+          { path: "/contact", label: "Contact Us" },
         ].map((item) => (
           <Link key={`${item.path}-${item.label}`} to={item.path}>
             <li className={styles.navLink}>
-              {item.icon}
+              {/* {item.icon} */}
               <span>{item.label}</span>
             </li>
           </Link>
@@ -80,34 +80,24 @@ const Navbar = ({ setIsPopupOpen }) => {
           <X onClick={() => setMobileMenuOpen(false)} size={28} />
         </div>
         <ul className={styles.mobileNavLinks}>
-          {[
-            { path: "/", icon: <House size={16} />, label: "Home" },
-            {
-              path: "/flight-booking",
-              icon: <Plane size={16} />,
-              label: "Flights",
-            },
-            { path: "/hotel", icon: <Hotel size={16} />, label: "Hotels" },
-            { path: "/train", icon: <Train size={16} />, label: "Trains" },
-            { path: "/carbooking", icon: <Car size={16} />, label: "Cars" },
-            {
-              path: "/holiday",
-              icon: <Umbrella size={16} />,
-              label: "Holiday Packages",
-            },
-            {
-              path: "/destination",
-              icon: <MapPin size={16} />,
-              label: "Destinations",
-            },
-          ].map((item) => (
+        {[
+          { path: "/", icon: <House size={16} />, label: "Home" },
+          { path: "/about", label: "About" },
+          { path: "/services", label: "Services" },
+          {
+            path: "/holiday",
+            icon: <Umbrella size={16} />,
+            label: "Packages",
+          },
+          { path: "/contact", icon: <House size={16} />, label: "Contact Us" },
+        ].map((item) => (
             <Link
               key={`${item.path}-${item.label}`}
               to={item.path}
               onClick={() => setMobileMenuOpen(false)}
             >
               <li className={styles.mobileNavLink}>
-                {item.icon}
+                {/* {item.icon} */}
                 <span>{item.label}</span>
               </li>
             </Link>
@@ -118,14 +108,14 @@ const Navbar = ({ setIsPopupOpen }) => {
         <div className={styles.mobileAuthButtons}>
           <button
             className={styles.loginButton}
-            onClick={() => setMobileMenuOpen(false)}
+            onClick={() =>{setMobileMenuOpen(false)}} 
           >
             <LogIn size={16} />
             <span>Login</span>
           </button>
           <button
             className={styles.signupButton}
-            onClick={() => setMobileMenuOpen(false)}
+            onClick={() => {setIsPopupOpen(true); setMobileMenuOpen(false)}}
           >
             <User size={16} />
             <span>Sign Up</span>

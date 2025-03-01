@@ -67,7 +67,7 @@ const RegistrationPopup = ({ isOpen, onClose }) => {
     <div className="popup-overlay">
       <div className="popup-container">
         <div className="popup-header">
-          <h2>Register for Travelism</h2>
+          <h2>Register for Hajj Kidmat</h2>
           <button onClick={onClose} className="close-button">
             <X size={24} />
           </button>
