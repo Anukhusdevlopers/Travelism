@@ -15,7 +15,7 @@
   .logo {
     font-size: 28px;
     font-weight: 700;
-    color: #ff5722;
+    color: #008000;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -35,7 +35,7 @@
   }
   
   .navItem.active {
-    color: #ff5722;
+    color: #008000;
   }
   
   .navItem.active::after {
@@ -45,7 +45,7 @@
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: #ff5722;
+    background-color: #008000;
   }
   
   .banner {
@@ -90,7 +90,7 @@
   }
   
   .bannerButton {
-    background-color: #ff5722;
+    background-color: #008000;
     color: white;
     border: none;
     padding: 14px 28px;
@@ -150,7 +150,7 @@
   }
   
   .formInput:focus {
-    border-color: #ff5722;
+    border-color: #008000;
     outline: none;
   }
   
@@ -167,7 +167,7 @@
   }
   
   .searchButton {
-    background-color: #ff5722;
+    background-color: #008000;
     color: white;
     border: none;
     padding: 14px;
@@ -289,7 +289,7 @@
   .priceValue {
     font-size: 24px;
     font-weight: 700;
-    color: #ff5722;
+    color: #008000;
   }
   
   .priceUnit {
@@ -300,8 +300,8 @@
   .destinationButton {
     width: 100%;
     background-color: transparent;
-    color: #ff5722;
-    border: 1px solid #ff5722;
+    color: #008000;
+    border: 1px solid #008000;
     padding: 12px;
     border-radius: 8px;
     font-weight: 600;
@@ -310,7 +310,7 @@
   }
   
   .destinationButton:hover {
-    background-color: #ff5722;
+    background-color: #008000;
     color: white;
   }
   
@@ -392,7 +392,7 @@
   .testimonialContent::before {
     content: '"';
     font-size: 60px;
-    color: #ff5722;
+    color: #008000;
     opacity: 0.2;
     position: absolute;
     top: -20px;
@@ -454,7 +454,7 @@
   }
   
   .ctaButton {
-    background-color: #ff5722;
+    background-color: #008000;
     color: white;
     border: none;
     padding: 16px 32px;
@@ -485,7 +485,7 @@
   .footerLogo {
     font-size: 24px;
     font-weight: 700;
-    color: #ff5722;
+    color: #008000;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -516,7 +516,7 @@
   }
   
   .socialLink:hover {
-    background-color: #ff5722;
+    background-color: #008000;
     color: white;
   }
   
@@ -540,7 +540,7 @@
   }
   
   .footerLink:hover {
-    color: #ff5722;
+    color: #008000;
   }
   
   .copyright {

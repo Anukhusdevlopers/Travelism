@@ -4,7 +4,7 @@ import styles from './Navbar.module.css';
 import { Link } from 'react-router-dom';
 import img from '../../../assets/logo.jpg'
 
-const Navbar = () => {
+const Navbar = ({setIsPopupOpen}) => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     return (
@@ -41,7 +41,7 @@ const Navbar = () => {
                     <LogIn size={16} />
                     <span>Login</span>
                 </button>
-                <button className={styles.signupButton}>
+                <button className={styles.signupButton} onClick={()=>setIsPopupOpen(true)}>
                     <User size={16} />
                     <span>Sign Up</span>
                 </button>
