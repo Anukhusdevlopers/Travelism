@@ -1,0 +1,557 @@
+.aboutContainer {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #333;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1530789253388-582c481c54b0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    position: relative;
+  }
+  
+  .heroContent {
+    max-width: 800px;
+    padding: 0 20px;
+    z-index: 1;
+  }
+  
+  .heroTitle {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+  
+  .heroSubtitle {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+  }
+  
+  .section {
+    padding: 80px 20px;
+  }
+  
+  .sectionLight {
+    background-color: #fff;
+  }
+  
+  .sectionDark {
+    background-color: #f8f9fa;
+  }
+  
+  .sectionGreen {
+    background-color: #008000;
+    color: white;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .sectionTitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    position: relative;
+  }
+  
+  .sectionTitle::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: #008000;
+    margin: 15px auto 0;
+  }
+  
+  .sectionTitleLight::after {
+    background-color: #fff;
+  }
+  
+  .sectionSubtitle {
+    font-size: 1.2rem;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+    line-height: 1.6;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+  
+  .card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+  }
+  
+  .cardImage {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  .cardContent {
+    padding: 25px;
+  }
+  
+  .cardTitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .cardText {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+  }
+  
+  .statsContainer {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+  
+  .statItem {
+    padding: 20px;
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .statNumber {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #008000;
+  }
+  
+  .statTitle {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+  
+  .teamGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+  }
+  
+  .teamMember {
+    text-align: center;
+  }
+  
+  .teamImage {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 5px solid white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .teamName {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  
+  .teamRole {
+    font-size: 1rem;
+    color: #008000;
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+  
+  .teamBio {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  
+  .timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: #008000;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+  }
+  
+  .timelineItem {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+  }
+  
+  .timelineItem:nth-child(odd) {
+    left: 0;
+  }
+  
+  .timelineItem:nth-child(even) {
+    left: 50%;
+  }
+  
+  .timelineContent {
+    padding: 20px 30px;
+    background-color: white;
+    position: relative;
+    border-radius: 6px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .timelineItem:nth-child(odd) .timelineContent {
+    border-left: 4px solid #008000;
+  }
+  
+  .timelineItem:nth-child(even) .timelineContent {
+    border-right: 4px solid #008000;
+  }
+  
+  .timelineYear {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    right: -25px;
+    background-color: #008000;
+    border: 4px solid white;
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+  
+  .timelineItem:nth-child(even) .timelineYear {
+    left: -25px;
+  }
+  
+  .timelineTitle {
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .timelineText {
+    line-height: 1.6;
+  }
+  
+  .testimonials {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  .testimonial {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    max-width: 350px;
+    position: relative;
+  }
+  
+  .testimonial::before {
+    content: '"';
+    font-size: 5rem;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    color: rgba(0, 128, 0, 0.1);
+    font-family: Georgia, serif;
+  }
+  
+  .testimonialText {
+    font-style: italic;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .testimonialAuthor {
+    display: flex;
+    align-items: center;
+  }
+  
+  .testimonialImage {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+  }
+  
+  .testimonialInfo {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .testimonialName {
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+  
+  .testimonialRole {
+    color: #008000;
+    font-size: 0.9rem;
+  }
+  
+  .cta {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(rgba(0, 128, 0, 0.9), rgba(0, 128, 0, 0.9)), url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+  }
+  
+  .ctaTitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  
+  .ctaText {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+  }
+  
+  .button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: white;
+    color: #008000;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid white;
+  }
+  
+  .button:hover {
+    background-color: transparent;
+    color: white;
+  }
+  
+  .buttonOutline {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+  }
+  
+  .buttonOutline:hover {
+    background-color: white;
+    color: #008000;
+  }
+  
+  .partners {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+  }
+  
+  .partnerLogo {
+    max-width: 150px;
+    height: auto;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+  }
+  
+  .partnerLogo:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+  }
+  
+  .values {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+  }
+  
+  .valueItem {
+    text-align: center;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+  }
+  
+  .valueItem:hover {
+    transform: translateY(-10px);
+  }
+  
+  .valueIcon {
+    font-size: 3rem;
+    color: #008000;
+    margin-bottom: 20px;
+  }
+  
+  .valueTitle {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+  
+  .valueText {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .awards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  .award {
+    text-align: center;
+    max-width: 250px;
+  }
+  
+  .awardIcon {
+    font-size: 3rem;
+    color: #008000;
+    margin-bottom: 15px;
+  }
+  
+  .awardTitle {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .awardYear {
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  @media (max-width: 992px) {
+    .heroTitle {
+      font-size: 2.8rem;
+    }
+    
+    .heroSubtitle {
+      font-size: 1.3rem;
+    }
+    
+    .sectionTitle {
+      font-size: 2.2rem;
+    }
+    
+    .timeline::after {
+      left: 31px;
+    }
+    
+    .timelineItem {
+      width: 100%;
+      padding-left: 70px;
+      padding-right: 25px;
+    }
+    
+    .timelineItem:nth-child(even) {
+      left: 0;
+    }
+    
+    .timelineItem:nth-child(odd) .timelineContent,
+    .timelineItem:nth-child(even) .timelineContent {
+      border-left: 4px solid #008000;
+      border-right: none;
+    }
+    
+    .timelineYear {
+      left: 6px;
+      right: auto;
+    }
+    
+    .timelineItem:nth-child(even) .timelineYear {
+      left: 6px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .heroTitle {
+      font-size: 2.3rem;
+    }
+    
+    .heroSubtitle {
+      font-size: 1.1rem;
+    }
+    
+    .section {
+      padding: 60px 20px;
+    }
+    
+    .sectionTitle {
+      font-size: 2rem;
+    }
+    
+    .statNumber {
+      font-size: 2.5rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .heroTitle {
+      font-size: 2rem;
+    }
+    
+    .heroSubtitle {
+      font-size: 1rem;
+    }
+    
+    .section {
+      padding: 40px 20px;
+    }
+    
+    .sectionTitle {
+      font-size: 1.8rem;
+    }
+  }

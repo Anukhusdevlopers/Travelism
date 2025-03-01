@@ -4,13 +4,10 @@ import OfferPage from "./Pages/User/Offers";
 import { Route, Routes } from "react-router-dom";
 import Home from "./Pages/User/Home";
 import Holiday from "./Pages/User/Holiday";
-import FlightBooking from "./Pages/User/Flight";
-import DestinationPage from "./Pages/User/Destination";
-import HotelBooking from "./Pages/User/HotelBooking";
-import CarBooking from "./Pages/User/CarBooking";
-import TrainsBooking from "./Pages/User/TrainsBooking";
-
-const App = () => {
+import Contact from "./Pages/User/Contact";
+import About from "./Pages/User/About";
+import Services from "./Pages/User/Services";
+  const App = () => {
   return (
     <div>
       <Routes>
@@ -18,11 +15,9 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/offer" element={<OfferPage />} />
           <Route path="/holiday" element={<Holiday />} />
-          <Route path="/flight-booking" element={<FlightBooking />} />
-          <Route path="/destination" element={<DestinationPage />} />
-          <Route path="/hotel" element={<HotelBooking/>}/>
-          <Route path="/carbooking" element={<CarBooking/>}/>
-          <Route path="/train" element={<TrainsBooking/>} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={< Contact />} />
         </Route>
       </Routes>
     </div>
