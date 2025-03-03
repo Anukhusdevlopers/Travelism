@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Plane, 
   Facebook, 
@@ -23,43 +24,23 @@ const Footer = () => {
               <p className={styles.footerDescription}>
                 Making travel planning simple, affordable, and hassle-free since 2020. Your trusted partner for all your travel needs.
               </p>
-              <div className={styles.socialLinks}>
-                <a href="#" className={styles.socialLink}>
-                  <Facebook size={18} />
-                </a>
-                <a href="#" className={styles.socialLink}>
-                  <Twitter size={18} />
-                </a>
-                <a href="#" className={styles.socialLink}>
-                  <Instagram size={18} />
-                </a>
-                <a href="#" className={styles.socialLink}>
-                  <Linkedin size={18} />
-                </a>
-              </div>
+              
             </div>
             
             <div className={styles.footerColumn}>
               <h3 className={styles.columnTitle}>Company</h3>
               <div className={styles.columnLinks}>
-                <a href="#" className={styles.columnLink}>About Us</a>
-                <a href="#" className={styles.columnLink}>Careers</a>
-                <a href="#" className={styles.columnLink}>Blog</a>
-                <a href="#" className={styles.columnLink}>Press</a>
-                <a href="#" className={styles.columnLink}>Gift Cards</a>
-                <a href="#" className={styles.columnLink}>Magazine</a>
+                <a href="#" className={styles.columnLink}> <Link to='/' > Home</Link></a>
+                <a href="#" className={styles.columnLink}> <Link to='/about' > About Us</Link></a>
+                <a href="#" className={styles.columnLink}> <Link to='/services' > Services</Link></a>
+                <a href="#" className={styles.columnLink}> <Link to='/holiday' > Packages</Link></a>
               </div>
             </div>
             
             <div className={styles.footerColumn}>
               <h3 className={styles.columnTitle}>Support</h3>
               <div className={styles.columnLinks}>
-                <a href="#" className={styles.columnLink}>Contact Us</a>
-                <a href="#" className={styles.columnLink}>Help Center</a>
-                <a href="#" className={styles.columnLink}>Privacy Policy</a>
-                <a href="#" className={styles.columnLink}>Terms of Service</a>
-                <a href="#" className={styles.columnLink}>Trust & Safety</a>
-                <a href="#" className={styles.columnLink}>Accessibility</a>
+                <Link to="/contact" className={styles.columnLink}>Contact Us</Link>
               </div>
             </div>
             

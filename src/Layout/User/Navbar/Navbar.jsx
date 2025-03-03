@@ -51,10 +51,7 @@ const Navbar = ({ setIsPopupOpen }) => {
 
       {/* Auth Buttons (Desktop) */}
       <div className={styles.authButtons}>
-        <button className={styles.loginButton}>
-          <LogIn size={16} />
-          <span>Login</span>
-        </button>
+       
         <button
           className={styles.signupButton}
           onClick={() => setIsPopupOpen(true)}
@@ -106,13 +103,7 @@ const Navbar = ({ setIsPopupOpen }) => {
 
         {/* Auth Buttons (Mobile) */}
         <div className={styles.mobileAuthButtons}>
-          <button
-            className={styles.loginButton}
-            onClick={() =>{setMobileMenuOpen(false)}} 
-          >
-            <LogIn size={16} />
-            <span>Login</span>
-          </button>
+         
           <button
             className={styles.signupButton}
             onClick={() => {setIsPopupOpen(true); setMobileMenuOpen(false)}}

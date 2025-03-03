@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Award, Users, Heart, Globe, Compass, Shield, Star, Clock, Briefcase } from 'lucide-react';
 import styles from './About.module.css';
+import { Link } from 'react-router-dom';
+import RegistrationPopup from '../../Component/Authentication/Register';
 
 const About = () => {
+
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+    
+      const openPopup = () => setIsPopupOpen(true);
+      const closePopup = () => setIsPopupOpen(false);
+  
+
   return (
     <div className={styles.aboutContainer}>
       {/* Hero Section */}
@@ -512,12 +521,14 @@ const About = () => {
             Join millions of travelers who trust us for their travel needs. Start planning your next adventure today!
           </p>
           <div>
-            <a href="#" className={styles.button}>Book Now</a>
-            <a href="#" className={`${styles.button} ${styles.buttonOutline}`} style={{ marginLeft: '15px' }}>Contact Us</a>
+            <button onClick={openPopup} className={styles.button}>Book Now</button>
+            <Link to="/contact" className={`${styles.button} ${styles.buttonOutline}`} style={{ marginLeft: '15px' }}>Contact Us</Link>
           </div>
         </div>
       </section>
-    </div>
+      <RegistrationPopup isOpen={isPopupOpen} onClose={closePopup}/>
+
+      </div>
   );
 };
 

@@ -17,9 +17,16 @@ import {
   Youtube,
 } from "lucide-react";
 import styles from "./Holiday.module.css";
+import RegistrationPopup from "../../Component/Authentication/Register";
 
 const Holiday = () => {
   const [activeNav, setActiveNav] = useState("holidays");
+
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
+      
+        const openPopup = () => setIsPopupOpen(true);
+        const closePopup = () => setIsPopupOpen(false);
+    
 
   const destinations = [
     {
@@ -325,8 +332,10 @@ const Holiday = () => {
           itineraries, and 24/7 on-trip assistance. Create memories that last a
           lifetime!
         </p>
-        <button className={styles.ctaButton}>Plan My Holiday Now</button>
+        <button onClick={openPopup} className={styles.ctaButton}>Plan My Holiday Now</button>
       </section>
+      <RegistrationPopup isOpen={isPopupOpen} onClose={closePopup}/>
+
     </div>
   );
 };

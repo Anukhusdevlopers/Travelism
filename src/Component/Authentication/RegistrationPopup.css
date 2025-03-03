@@ -35,10 +35,6 @@
     }
   }
   
-  .popup-container::-webkit-scrollbar {
-    display: none;
-  }
-  
   .popup-header {
     background: linear-gradient(135deg, #016601 0%, #008000 100%);
     color: white;

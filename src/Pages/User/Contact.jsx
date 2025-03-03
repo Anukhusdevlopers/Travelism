@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { 
-  MapPin, 
-  Phone, 
-  Mail, 
-  Clock, 
-  Facebook, 
-  Twitter, 
-  Instagram, 
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  Facebook,
+  Twitter,
+  Instagram,
   Linkedin,
   MessageSquare,
   Users,
@@ -129,8 +129,8 @@ const Contact = () => {
               <label className={styles.label}>
                 Type of Inquiry <span className={styles.required}>*</span>
               </label>
-              <select 
-                name="inquiryType" 
+              <select
+                name="inquiryType"
                 value={formData.inquiryType}
                 onChange={handleChange}
                 className={styles.select}
@@ -185,16 +185,12 @@ const Contact = () => {
               <MapPin size={20} className={styles.infoIcon} /> Our Location
             </h3>
             <p className={styles.infoContent}>
-            2nd floor Sahara tower kursi road
-            <br />
-            Lucknow, India
+              2nd floor Sahara tower kursi road
+              <br />
+              Lucknow, India
             </p>
             <div className={styles.mapContainer}>
-              <img 
-                src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
-                alt="Office location map" 
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-              />
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3595.7443873172324!2d80.94475867548088!3d26.882069476665386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bfd7e104672fb%3A0x190aa53d3bf38c20!2sSahara%20India%20Bhavan%2C%20Kapoorthla%2C%20Sector%20A%2C%20Chandralok%2C%20Lucknow%2C%20Uttar%20Pradesh%20226024!5e1!3m2!1sen!2sin!4v1740990899144!5m2!1sen!2sin" style={{height:'100%',width:'100%'}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
 
@@ -255,28 +251,28 @@ const Contact = () => {
           <div className={styles.faqItem}>
             <h3 className={styles.faqQuestion}>How do I cancel or modify my booking?</h3>
             <p className={styles.faqAnswer}>
-              You can cancel or modify your booking by logging into your account and navigating to "My Trips." 
+              You can cancel or modify your booking by logging into your account and navigating to "My Trips."
               Alternatively, you can contact our customer support team with your booking reference.
             </p>
           </div>
           <div className={styles.faqItem}>
             <h3 className={styles.faqQuestion}>What is your refund policy?</h3>
             <p className={styles.faqAnswer}>
-              Refund policies vary depending on the type of booking and the terms set by our partners. 
+              Refund policies vary depending on the type of booking and the terms set by our partners.
               Generally, cancellations made 48 hours before the scheduled service are eligible for a full refund.
             </p>
           </div>
           <div className={styles.faqItem}>
             <h3 className={styles.faqQuestion}>How can I get my e-ticket?</h3>
             <p className={styles.faqAnswer}>
-              E-tickets are automatically sent to the email address provided during booking. 
+              E-tickets are automatically sent to the email address provided during booking.
               You can also download them from the "My Trips" section of your account.
             </p>
           </div>
           <div className={styles.faqItem}>
             <h3 className={styles.faqQuestion}>Do you offer group discounts?</h3>
             <p className={styles.faqAnswer}>
-              Yes, we offer special rates for group bookings of 10 or more people. Please contact our 
+              Yes, we offer special rates for group bookings of 10 or more people. Please contact our
               group booking department at groups@travelsite.com for more information.
             </p>
           </div>

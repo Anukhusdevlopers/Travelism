@@ -6,8 +6,16 @@ import {
   Award, Users, Smile, DollarSign
 } from 'lucide-react';
 import styles from './Services.module.css';
+import { Link } from 'react-router-dom';
+import RegistrationPopup from '../../Component/Authentication/Register';
 
 const Services = () => {
+
+   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  
+    const openPopup = () => setIsPopupOpen(true);
+    const closePopup = () => setIsPopupOpen(false);
+
   const [activeTab, setActiveTab] = useState('flights');
   const [openFaq, setOpenFaq] = useState(null);
 
@@ -28,7 +36,7 @@ const Services = () => {
       </section>
 
       {/* Search Section */}
-      <div className={styles.container}>
+      {/* <div className={styles.container}>
         <div className={styles.searchContainer}>
           <div className={styles.tabsContainer}>
             <div className={styles.tabsList}>
@@ -92,7 +100,7 @@ const Services = () => {
             </button>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Main Services Section */}
       <section className={`${styles.section} ${styles.sectionLight}`}>
@@ -768,16 +776,7 @@ const Services = () => {
               alt="Car Rental Partner" 
               className={styles.partnerLogo} 
             />
-            <img 
-              src="https://images.unsplash.com/photo-1614680376739-8360d55bc8a5?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" 
-              alt="Activity Partner" 
-              className={styles.partnerLogo} 
-            />
-            <img 
-              src="https://images.unsplash.com/photo-1614680376484-4b3ed6e1e5d1?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" 
-              alt="Insurance Partner" 
-              className={styles.partnerLogo} 
-            />
+            
           </div>
         </div>
       </section>
@@ -789,10 +788,12 @@ const Services = () => {
           <p className={styles.ctaText}>
             Join millions of travelers who trust us for their travel needs. Start planning your next adventure today!
           </p>
-          <a href="#" className={styles.ctaButton}>Book Your Trip Now</a>
+          <button onClick={openPopup} className={styles.ctaButton}>Book Your Trip Now</button>
         </div>
       </section>
-    </div>
+      <RegistrationPopup isOpen={isPopupOpen} onClose={closePopup}/>
+
+    </div>  
   );
 };
 
