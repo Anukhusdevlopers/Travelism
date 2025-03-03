@@ -10,6 +10,7 @@ import Services from "./Pages/User/Services";
 import Dashboard from "./Pages/Admin/Dashboard";
 import AdminLayout from "./Layout/Admin/Layout";
 import AdminLogin from "./Pages/Admin/Login";
+import Users from "./Pages/Admin/Users";
   const App = () => {
   return (
     <div>
@@ -24,10 +25,12 @@ import AdminLogin from "./Pages/Admin/Login";
 
         </Route>
 
+        {/* auth  */}
+        <Route path="/admin-login" element={<AdminLogin />} />
+
         <Route path="/admin" element={<AdminLayout />} >
-        
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="admin-login" element={<AdminLogin />} />
+          <Route index element={<Dashboard/>} />
+          <Route path="user" element={<Users/>} />
         </Route>
 
       </Routes>

@@ -185,9 +185,9 @@ const Contact = () => {
               <MapPin size={20} className={styles.infoIcon} /> Our Location
             </h3>
             <p className={styles.infoContent}>
-              123 Travel Plaza, Silicon Valley<br />
-              San Francisco, CA 94103<br />
-              United States
+            2nd floor Sahara tower kursi road
+            <br />
+            Lucknow, India
             </p>
             <div className={styles.mapContainer}>
               <img 
@@ -204,11 +204,11 @@ const Contact = () => {
             </h3>
             <p className={styles.infoContent}>
               <strong>Customer Support:</strong><br />
-              +1 (800) 123-4567<br />
-              support@travelsite.com<br /><br />
+              7007583120<br />
+              karwantours74@gmail.com<br /><br />
               <strong>Booking Inquiries:</strong><br />
-              +1 (800) 765-4321<br />
-              bookings@travelsite.com
+              7007583120<br />
+              karwantours74@gmail.com
             </p>
           </div>
 

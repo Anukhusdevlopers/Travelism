@@ -18,7 +18,7 @@ const Footer = () => {
             <div className={styles.footerColumn}>
               <div className={styles.footerLogo}>
                 <Plane className={styles.logoIcon} size={24} />
-                <span>Tour&Travel</span>
+                <span>Karwan Tours</span>
               </div>
               <p className={styles.footerDescription}>
                 Making travel planning simple, affordable, and hassle-free since 2020. Your trusted partner for all your travel needs.
@@ -67,15 +67,15 @@ const Footer = () => {
               <h3 className={styles.columnTitle}>Contact</h3>
               <div className={styles.contactItem}>
                 <MapPin size={18} className={styles.contactIcon} />
-                <span>123 Travel Street, Suite 100<br />India, NY 10001</span>
+                <span>2nd floor Sahara tower kursi road<br />Lucknow, India</span>
               </div>
               <div className={styles.contactItem}>
                 <Phone size={18} className={styles.contactIcon} />
-                <span>+1 (555) 123-4567</span>
+                <span>7007583120</span>
               </div>
               <div className={styles.contactItem}>
                 <Mail size={18} className={styles.contactIcon} />
-                <span>support@travelease.com</span>
+                <span>karwantours74@gmail.com</span>
               </div>
             </div>
           </div>
@@ -83,7 +83,7 @@ const Footer = () => {
           <div className={styles.divider}></div>
           
           <div className={styles.footerBottom}>
-            <p>© 2025 TravelEase. All rights reserved.</p>
+            <p>© 2025 Karwan International Tours. All rights reserved.</p>
             <div className={styles.footerLinks}>
               <a href="#" className={styles.footerLink}>Privacy</a>
               <a href="#" className={styles.footerLink}>Terms</a>

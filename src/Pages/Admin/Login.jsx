@@ -1,7 +1,9 @@
 import { useState } from "react";
 import styles from "./Login.module.css";
+import { useNavigate } from "react-router-dom";
 
 export default function AdminLogin() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -24,7 +26,9 @@ export default function AdminLogin() {
       return;
     }
 
+
     console.log("Login Submitted:", formData);
+    navigate('/admin/user')
 
     // Clear form after submission (Optional)
     setFormData({ email: "", password: "" });
@@ -32,9 +36,9 @@ export default function AdminLogin() {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} >
       <div className={styles.formBox}>
-        <div className={styles.header}>Login to Your Account</div>
+        <div className={styles.header}>Login to Admin Account</div>
         <form onSubmit={handleSubmit} className={styles.body}>
           {error && <p className={styles.error}>{error}</p>}
 
