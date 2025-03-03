@@ -65,11 +65,11 @@ const Footer = () => {
           
           <div className={styles.footerBottom}>
             <p>© 2025 Karwan International Tours. All rights reserved.</p>
-            <div className={styles.footerLinks}>
+            {/* <div className={styles.footerLinks}>
               <a href="#" className={styles.footerLink}>Privacy</a>
               <a href="#" className={styles.footerLink}>Terms</a>
               <a href="#" className={styles.footerLink}>Sitemap</a>
-            </div>
+            </div> */}
           </div>
         </footer>
       );

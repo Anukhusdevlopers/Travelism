@@ -588,7 +588,7 @@ const Services = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className={`${styles.section} ${styles.sectionDark}`}>
+      {/* <section className={`${styles.section} ${styles.sectionDark}`}>
         <div className={styles.container}>
           <h2 className={styles.sectionTitle}>What Our Customers Say</h2>
           <p className={styles.sectionSubtitle}>
@@ -648,10 +648,10 @@ const Services = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* FAQ Section */}
-      <section className={`${styles.section} ${styles.sectionLight}`}>
+      {/* <section className={`${styles.section} ${styles.sectionLight}`}>
         <div className={styles.container}>
           <h2 className={styles.sectionTitle}>Frequently Asked Questions</h2>
           <p className={styles.sectionSubtitle}>
@@ -750,10 +750,10 @@ const Services = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Partners Section */}
-      <section className={`${styles.section} ${styles.sectionDark}`}>
+      {/* <section className={`${styles.section} ${styles.sectionDark}`}>
         <div className={styles.container}>
           <h2 className={styles.sectionTitle}>Our Trusted Partners</h2>
           <p className={styles.sectionSubtitle}>
@@ -779,7 +779,7 @@ const Services = () => {
             
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
       <section className={styles.cta}>

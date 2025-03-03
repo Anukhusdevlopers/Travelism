@@ -208,7 +208,7 @@ const Contact = () => {
             </p>
           </div>
 
-          <div className={styles.infoCard}>
+          {/* <div className={styles.infoCard}>
             <h3 className={styles.infoTitle}>
               <Clock size={20} className={styles.infoIcon} /> Business Hours
             </h3>
@@ -218,7 +218,7 @@ const Contact = () => {
               <strong>Sunday:</strong> 10:00 AM - 4:00 PM<br />
               <em>All times are in EST</em>
             </p>
-          </div>
+          </div> */}
 
           <div className={styles.infoCard}>
             <h3 className={styles.infoTitle}>

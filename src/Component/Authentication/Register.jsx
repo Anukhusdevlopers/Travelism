@@ -10,6 +10,7 @@ import { SignUp } from '../../services/user.service';
 
 const RegistrationPopup = ({ isOpen, onClose }) => {
   const [currentStep, setCurrentStep] = useState(1);
+  const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
     // Personal details
     name: '',
@@ -37,6 +38,36 @@ const RegistrationPopup = ({ isOpen, onClose }) => {
     declaration: false,
   });
 
+  const validateStep = () => {
+    let newErrors = {};
+    if (currentStep === 1) {
+      if (!formData.name) newErrors.name = 'Full Name is required';
+      if (!formData.dob) newErrors.dob = 'Date of Birth is required';
+      if (!formData.gender) newErrors.gender = 'Gender is required';
+      if (!formData.fatherName) newErrors.fatherName = "Father's Name is required";
+      if (!formData.motherName) newErrors.motherName = "Mother's Name is required";
+      if (!formData.nationality) newErrors.nationality = 'Nationality is required';
+      if (!formData.aadharNo) newErrors.aadharNo = 'Aadhar Number is required';
+    }
+    if (currentStep === 2) {
+      if (!formData.address) newErrors.address = 'Complete Address is required';
+      if (!formData.city) newErrors.city = 'City is required';
+      if (!formData.state) newErrors.state = 'State is required';
+      if (!formData.pincode) newErrors.pincode = 'Pincode is required';
+    }
+    if (currentStep === 3) {
+      if (!formData.emergencyContactName) newErrors.emergencyContactName = 'Emergency Contact Name is required';
+      if (!formData.emergencyContactNo) newErrors.emergencyContactNo = 'Emergency Contact Number is required';
+      if (!formData.emergencyContactAddress) newErrors.emergencyContactAddress = 'Emergency Contact Address is required';
+    }
+    if (currentStep === 4) {
+      if (!formData.declaration) newErrors.declaration = 'You must agree to the declaration';
+    }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+
   console.log(formData);
   const handleChange = (e) => {
     const { name, value, type } = e.target;
@@ -49,7 +80,7 @@ const RegistrationPopup = ({ isOpen, onClose }) => {
 
     const handleSubmit = async (e) => {
       e.preventDefault(); // Prevent form reload
-    
+      if (validateStep()){
       try {
         const response = await SignUp(formData); // Call API function
         console.log("Success:", response);
@@ -58,15 +89,17 @@ const RegistrationPopup = ({ isOpen, onClose }) => {
         console.error("Error creating user:", error.response?.data || error.message);
         alert(error.response?.data?.message || "Failed to create user."); // Show error message
       }
-    
+      }
       onClose(); // Close modal/form after submission
     };
     
     
 
-  const nextStep = () => {
-    setCurrentStep(currentStep + 1);
-  };
+    const nextStep = () => {
+      if (validateStep()) {
+        setCurrentStep(currentStep + 1);
+      }
+    };
 
   const prevStep = () => {
     setCurrentStep(currentStep - 1);
@@ -371,6 +404,9 @@ const RegistrationPopup = ({ isOpen, onClose }) => {
               </div>
             </div>
           )}
+
+{/* {errors && <p className="error-text" style={{color:'red'}}>Please fill all fields</p>} */}
+              
           
           <div className="form-buttons">
             {currentStep > 1 && (

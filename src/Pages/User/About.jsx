@@ -299,7 +299,7 @@ const About = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className={`${styles.section} ${styles.sectionDark}`}>
+      {/* <section className={`${styles.section} ${styles.sectionDark}`}>
         <div className={styles.container}>
           <h2 className={styles.sectionTitle}>What Our Customers Say</h2>
           <p className={styles.sectionSubtitle}>
@@ -359,10 +359,10 @@ const About = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Partners Section */}
-      <section className={`${styles.section} ${styles.sectionLight}`}>
+      {/* <section className={`${styles.section} ${styles.sectionLight}`}>
         <div className={styles.container}>
           <h2 className={styles.sectionTitle}>Our Partners</h2>
           <p className={styles.sectionSubtitle}>
@@ -397,7 +397,7 @@ const About = () => {
             />
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CSR Section */}
       <section className={`${styles.section} ${styles.sectionDark}`}>
