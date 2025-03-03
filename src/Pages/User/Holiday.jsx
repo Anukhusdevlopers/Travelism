@@ -185,7 +185,7 @@ const Holiday = () => {
         </div>
       </div>
 
-      <div className={styles.searchContainer}>
+      {/* <div className={styles.searchContainer}>
         <h2 className={styles.searchTitle}>Find Your Perfect Holiday</h2>
         <div className={styles.searchForm}>
           <div className={styles.formGroup}>
@@ -223,7 +223,7 @@ const Holiday = () => {
             Search
           </button>
         </div>
-      </div>
+      </div> */}
 
       <section>
         <h2 className={styles.sectionTitle}>Popular Holiday Destinations</h2>

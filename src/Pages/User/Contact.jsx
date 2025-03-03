@@ -220,7 +220,7 @@ const Contact = () => {
             </p>
           </div> */}
 
-          <div className={styles.infoCard}>
+          {/* <div className={styles.infoCard}>
             <h3 className={styles.infoTitle}>
               <Users size={20} className={styles.infoIcon} /> Connect With Us
             </h3>
@@ -241,7 +241,7 @@ const Contact = () => {
                 <Linkedin size={20} />
               </a>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
 
