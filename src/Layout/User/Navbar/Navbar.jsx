@@ -23,7 +23,7 @@ const Navbar = ({ setIsPopupOpen }) => {
     <nav className={styles.navbar}>
       <div className={styles.logo}>
         <span>
-          <img src={img} style={{ height: "50px", width: "auto" }} alt="" />
+          <img src={img} style={{ height: "80px", width: "auto" }} alt="" />
         </span>
       </div>
 
