@@ -22,7 +22,7 @@ const Footer = () => {
                 <span>Karwan Tours</span>
               </div>
               <p className={styles.footerDescription}>
-                Making travel planning simple, affordable, and hassle-free since 2020. Your trusted partner for all your travel needs.
+                Making travel planning simple, affordable, and hassle-free since 2025. Your trusted partner for all your travel needs.
               </p>
               
             </div>
