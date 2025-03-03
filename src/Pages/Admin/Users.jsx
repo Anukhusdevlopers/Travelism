@@ -1,18 +1,30 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { GetAllData } from "../../services/admin.service";
 import styles from "./Users.module.css";
 
 export default function Users() {
-  const [users, setUsers] = useState([]); // Always an array to avoid `.map()` errors
+  const navigate = useNavigate();
+  const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  useEffect(() => {
+    // Check if admin is logged in
+    const isAdmin = localStorage.getItem("isAdmin");
+    if (isAdmin !== "true") {
+      navigate("/admin-login");
+      return;
+    }
+
+    fetchData();
+  }, [navigate]);
 
   const fetchData = async () => {
     try {
       setLoading(true);
       const response = await GetAllData();
 
-      // Ensure response is an array
       if (Array.isArray(response)) {
         setUsers(response);
       } else if (response?.data && Array.isArray(response.data)) {
@@ -23,16 +35,12 @@ export default function Users() {
       setError(null);
     } catch (err) {
       console.error("Error fetching user data:", err);
-      setUsers([]); // Prevent `.map()` errors
+      setUsers([]);
       setError("Failed to load user data");
     } finally {
       setLoading(false);
     }
   };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
 
   return (
     <main className={styles.mainContent}>

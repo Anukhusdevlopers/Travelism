@@ -15,26 +15,42 @@ export default function AdminLogin() {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
-  // Handle form submission
+  const ADMIN_CREDENTIALS = {
+    email: "admin@travel.com",
+    password: "admin123",
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Basic validation
+  
     if (!formData.email || !formData.password) {
       setError("Both fields are required.");
       return;
     }
-
-
-    console.log("Login Submitted:", formData);
-    navigate('/admin/user')
-
-    // Clear form after submission (Optional)
-    setFormData({ email: "", password: "" });
-    setError("");
+  
+    // Check credentials
+    if (
+      formData.email === ADMIN_CREDENTIALS.email &&
+      formData.password === ADMIN_CREDENTIALS.password
+    ) {
+      console.log("Login Successful:", formData);
+      
+      // Set isAdmin in localStorage
+      localStorage.setItem("isAdmin", "true");
+  
+      navigate("/admin/user");
+  
+      // Clear form after submission (Optional)
+      setFormData({ email: "", password: "" });
+      setError("");
+    } else {
+      setError("Invalid email or password.");
+      
+      // Set isAdmin to false in localStorage
+      localStorage.setItem("isAdmin", "false");
+    }
   };
-
+  
+  
   return (
     <div className={styles.container} >
       <div className={styles.formBox}>
