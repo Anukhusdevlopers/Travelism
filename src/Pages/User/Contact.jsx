@@ -42,7 +42,7 @@ const Contact = () => {
     try {
       const response = await ContactService(formData)
       console.log("Contact Response:", response);
-      alert(response?.data?.message || response?.message || "Success");
+      alert( response?.message || "Form submitted successfully, we'll contact you within 2 or three working days");
       
     } catch (error) {
       console.error("Error creating user:", error.response?.data || error.message);
