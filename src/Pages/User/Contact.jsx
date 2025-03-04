@@ -13,6 +13,7 @@ import {
   HelpCircle
 } from 'lucide-react';
 import styles from './Contact.module.css';
+import { ContactService } from '../../services/user.service';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -33,11 +34,21 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
     // Here you would typically send the data to your backend
-    alert('Thank you for your message! We will get back to you soon.');
+
+    try {
+      const response = await ContactService(formData)
+      console.log("Contact Response:", response);
+      alert(response?.data?.message || response?.message || "Success");
+      
+    } catch (error) {
+      console.error("Error creating user:", error.response?.data || error.message);
+      alert(error.response?.data?.message || "Failed to create user.");
+    }
+
     setFormData({
       firstName: '',
       lastName: '',
@@ -45,8 +56,9 @@ const Contact = () => {
       phone: '',
       subject: '',
       message: '',
-      inquiryType: 'general'
+      inquiryType: 'general' 
     });
+
   };
 
   return (
