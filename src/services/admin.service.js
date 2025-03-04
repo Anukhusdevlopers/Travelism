@@ -10,8 +10,17 @@ const GetAllData = async () => {
         });
         return response.data
       } catch (error) {
-        throw error.response?.data || "Error creating tour & travel user";
+        throw error.response?.data || "Error fetching tour & travel user";
       }
 }
 
-export { GetAllData };
+const GetAllContactRequests = async () => {
+  try {
+    const response = await api.get("/api/products/contact-us")
+    return response.data
+  }catch(error) {
+    throw error.response?.data || "Error fetching contact requests";
+  }
+}
+
+export { GetAllData, GetAllContactRequests };

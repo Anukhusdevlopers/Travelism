@@ -11,6 +11,7 @@ import Dashboard from "./Pages/Admin/Dashboard";
 import AdminLayout from "./Layout/Admin/Layout";
 import AdminLogin from "./Pages/Admin/Login";
 import Users from "./Pages/Admin/Users";
+import AdminContact from "./Pages/Admin/Contact";
   const App = () => {
   return (
     <div>
@@ -31,6 +32,7 @@ import Users from "./Pages/Admin/Users";
         <Route path="/admin" element={<AdminLayout />} >
           <Route index element={<Dashboard/>} />
           <Route path="user" element={<Users/>} />
+          <Route path="contact-requests" element={<AdminContact />} />
         </Route>
 
       </Routes>

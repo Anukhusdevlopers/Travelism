@@ -20,6 +20,11 @@ const Sidebar = () => {
             <FaUser /> Users
           </Link>
         </li>
+        <li>
+          <Link to="/admin/contact-requests" className="menu-item">
+            <FaUser /> Contact
+          </Link>
+        </li>
         {/* <li>
           <Link to="/settings" className="menu-item">
             <FaCog /> Settings
