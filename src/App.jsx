@@ -12,6 +12,11 @@ import AdminLayout from "./Layout/Admin/Layout";
 import AdminLogin from "./Pages/Admin/Login";
 import Users from "./Pages/Admin/Users";
 import AdminContact from "./Pages/Admin/Contact";
+import PrivacyPolicy from "./Pages/Policy/PrivacyPolicy";
+import TermCondition from "./Pages/Policy/Term&Condition";
+import RefundPolicy from "./Pages/Policy/RefundPolicy";
+import Gallery from "./Pages/User/Gallery";
+import ShippingDelivery from "./Pages/Policy/ShippingDelivery";
   const App = () => {
   return (
     <div>
@@ -23,9 +28,14 @@ import AdminContact from "./Pages/Admin/Contact";
           <Route path="/services" element={<Services />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={< Contact />} />
+          <Route path="/gallery" element={<Gallery/>} />
 
         </Route>
 
+        <Route path="/privacyPolicy" element={<PrivacyPolicy/>}/>
+        <Route path="/term" element={<TermCondition/>} />
+        <Route path="/refundPolicy" element={<RefundPolicy/>} />
+        <Route path="/shippingDelivery" element={<ShippingDelivery/>} />
         {/* auth  */}
         <Route path="/admin-login" element={<AdminLogin />} />
 

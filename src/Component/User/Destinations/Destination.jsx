@@ -1,65 +1,72 @@
 import React from 'react'
 import styles from './Destinations.module.css'
 import { MapPin, Calendar, Star } from 'lucide-react';
+import img1 from '../../../assets/IMG-20250306-WA0011.jpg'
+import img2 from '../../../assets/IMG-20250306-WA0012.jpg'
+import img3 from '../../../assets/IMG-20250306-WA0014.jpg'
+import img4 from '../../../assets/IMG-20250306-WA0015.jpg'
+import img5 from '../../../assets/IMG-20250306-WA0016.jpg'
+import img6 from '../../../assets/IMG-20250306-WA0017.jpg'
+import img7 from '../../../assets/destination1.jpg'
 
 const Destination = () => {
     const destinations = [
         {
           id: 1,
-          name: 'Santorini, Greece',
+          name: 'Madinah Munawaarah Ziyarah',
           rating: 4.8,
           duration: '7 days',
-          image: 'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
+          image: img1
         },
         {
           id: 2,
-          name: 'Kyoto, Japan',
+          name: 'Makkah Mukarramah',
           rating: 4.7,
           duration: '10 days',
-          image: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
+          image: img2
         },
         {
           id: 3,
-          name: 'Machu Picchu, Peru',
+          name: 'Clock Tower',
           rating: 4.9,
           duration: '5 days',
-          image: 'https://images.unsplash.com/photo-1526392060635-9d6019884377?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
+          image: img3
         },
         {
           id: 4,
-          name: 'Maldives',
+          name: 'Mina Ziyarah',
           rating: 4.8,
           duration: '6 days',
-          image: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
+          image: img4
         },
         {
           id: 5,
-          name: 'Barcelona, Spain',
+          name: 'Arafat Ziyarah',
           rating: 4.6,
           duration: '4 days',
-          image: 'https://images.unsplash.com/photo-1583422409516-2895a77efded?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
-        },
+          image:  img5
+              },
         {
           id: 6,
-          name: 'New York, USA',
+          name: 'Best Umrah Packages',
           rating: 4.7,
           duration: '5 days',
-          image: 'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
+          image: img6
         },
         {
           id: 7,
-          name: 'Cape Town, South Africa',
+          name: 'Medinah Munawaarah',
           rating: 4.5,
           duration: '8 days',
-          image: 'https://images.unsplash.com/photo-1580060839134-75a5edca2e99?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
-        },
-        {
-          id: 8,
-          name: 'Sydney, Australia',
-          rating: 4.6,
-          duration: '9 days',
-          image: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
-        }
+          image: img7
+           },
+        // {
+        //   id: 8,
+        //   name: 'Sydney, Saudi',
+        //   rating: 4.6,
+        //   duration: '9 days',
+        //   image: img2
+        //     }
       ];
 
     return (
@@ -82,10 +89,10 @@ const Destination = () => {
                       <Star size={14} />
                       {destination.rating}
                     </span>
-                    <span className={styles.destinationDetail}>
+                    {/* <span className={styles.destinationDetail}>
                       <Calendar size={14} />
                       {destination.duration}
-                    </span>
+                    </span> */}
                   </div>
                 </div>
               </div>

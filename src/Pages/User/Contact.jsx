@@ -212,7 +212,8 @@ const Contact = () => {
             </h3>
             <p className={styles.infoContent}>
               <strong>Customer Support:</strong><br />
-              7007583120<br />
+              7617866811, 7617866822<br /> 
+               7617866833, 7617866844 <br />
               karwantours74@gmail.com<br /><br />
               <strong>Booking Inquiries:</strong><br />
               7007583120<br />
@@ -271,8 +272,7 @@ const Contact = () => {
             <h3 className={styles.faqQuestion}>What is your refund policy?</h3>
             <p className={styles.faqAnswer}>
               Refund policies vary depending on the type of booking and the terms set by our partners.
-              Generally, cancellations made 48 hours before the scheduled service are eligible for a full refund.
-            </p>
+                </p>
           </div>
           <div className={styles.faqItem}>
             <h3 className={styles.faqQuestion}>How can I get my e-ticket?</h3>
@@ -285,7 +285,7 @@ const Contact = () => {
             <h3 className={styles.faqQuestion}>Do you offer group discounts?</h3>
             <p className={styles.faqAnswer}>
               Yes, we offer special rates for group bookings of 10 or more people. Please contact our
-              group booking department at groups@travelsite.com for more information.
+              group booking department at karwaninternationaltours.com for more information.
             </p>
           </div>
         </div>

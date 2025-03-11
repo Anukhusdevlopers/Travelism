@@ -181,7 +181,7 @@ const Holiday = () => {
             experiences that India has to offer. From majestic mountains to
             serene beaches, ancient temples to modern cities.
           </p>
-          <button className={styles.bannerButton}>Explore Packages</button>
+          {/* <button className={styles.bannerButton}>Explore Packages</button> */}
         </div>
       </div>
 
@@ -269,16 +269,16 @@ const Holiday = () => {
                   </span>
                   <span className={styles.priceUnit}>per person</span>
                 </div>
-                <button className={styles.destinationButton}>
+                {/* <button className={styles.destinationButton}>
                   View Details
-                </button>
+                </button> */}
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      <section className={styles.themeSection}>
+      {/* <section className={styles.themeSection}>
         <h2 className={styles.sectionTitle}>Explore by Theme</h2>
         <p className={styles.sectionSubtitle}>
           Looking for a specific type of holiday? Browse our curated collections
@@ -299,7 +299,7 @@ const Holiday = () => {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
 
       <section className={styles.testimonials}>
         <h2 className={styles.sectionTitle}>What Our Travelers Say</h2>

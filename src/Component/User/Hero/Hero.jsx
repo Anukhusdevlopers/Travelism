@@ -10,7 +10,7 @@ const Hero = () => {
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>Discover the Hajj and Umrah</h1>
           <p className={styles.heroSubtitle}>
-            Find the best deals  hotels, flights, and car rentals
+          Find the best deals hotels, bookings, and car rentals
           </p>
         </div>
   

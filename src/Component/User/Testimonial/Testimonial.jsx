@@ -7,15 +7,15 @@ const Testimonial = () => {
     const testimonials = [
         {
           id: 1,
-          quote: "TravelEase made planning our honeymoon so simple. The booking process was smooth, and we got an amazing deal on our resort in Bali. Highly recommend!",
+          quote: "Excellent manpower recruitment service! The workers we hired through this platform were skilled, well-trained, and ready to work. A hassle-free experience!",
           author: "Sarah Johnson",
-          location: "New York, USA",
+          location: "Delhi, India",
           avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&q=80",
           rating: 5
         },
         {
           id: 2,
-          quote: "I've been using TravelEase for all my business trips for the past year. Their customer service is exceptional, and the mobile app makes managing bookings a breeze.",
+          quote: "We needed staff urgently for our hotel, and this platform provided us with qualified candidates within days. Great service and support!",
           author: "Michael Chen",
           location: "Toronto, Canada",
           avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&q=80",
@@ -23,7 +23,7 @@ const Testimonial = () => {
         },
         {
           id: 3,
-          quote: "Our family vacation to Europe was perfectly organized thanks to TravelEase. From flights to hotels and local tours, everything was seamless. Will definitely use again!",
+          quote: "Finding skilled labour was a challenge until we partnered with Karwan International Tours. Their process is smooth, and we got reliable workers on time. Highly recommended!",
           author: "Emma Rodriguez",
           location: "London, UK",
           avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&q=80",

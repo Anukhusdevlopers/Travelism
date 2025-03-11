@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
-import { 
-  Plane, Hotel, Car, Umbrella, Map, CreditCard, 
-  Check, X, ChevronDown, Star, Search, Shield, Clock, 
-  Percent, Heart, Headphones, Zap, Briefcase, Globe, 
-  Award, Users, Smile, DollarSign
+import {
+  Plane, Hotel, Car, Umbrella, Map, CreditCard,  Search, Shield, Clock, Percent, Heart, Headphones,  Smile, DollarSign
 } from 'lucide-react';
+
+import img1 from '../../assets/IMG-20250306-WA0019.jpg'
+import img2 from '../../assets/IMG-20250306-WA0020.jpg'
+import img3 from '../../assets/IMG-20250306-WA0021.jpg'
 import styles from './Services.module.css';
-import { Link } from 'react-router-dom';
+
 import RegistrationPopup from '../../Component/Authentication/Register';
 
 const Services = () => {
 
-   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  
-    const openPopup = () => setIsPopupOpen(true);
-    const closePopup = () => setIsPopupOpen(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const openPopup = () => setIsPopupOpen(true);
+  const closePopup = () => setIsPopupOpen(false);
 
   const [activeTab, setActiveTab] = useState('flights');
   const [openFaq, setOpenFaq] = useState(null);
@@ -22,6 +23,30 @@ const Services = () => {
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
   };
+
+  const offers = [
+    {
+      id: 1,
+      title: 'Umrah',
+      description: 'Enjoy 5 nights at a luxury resort with complimentary breakfast and spa treatment.',
+      price: '$899',
+      image: img1
+    },
+    {
+      id: 2,
+      title: 'Makka Madina',
+      description: 'Visit 4 countries in 10 days with guided tours and premium accommodations.',
+      price: '$1,299',
+      image: img2
+    },
+    {
+      id: 3,
+      title: 'Hajj',
+      description: 'Escape to the mountains with this all-inclusive 3-night package.',
+      price: '$599',
+      image: img3
+    }
+  ];
 
   return (
     <div className={styles.servicesContainer}>
@@ -103,7 +128,7 @@ const Services = () => {
       </div> */}
 
       {/* Main Services Section */}
-      <section className={`${styles.section} ${styles.sectionLight}`}>
+      {/* <section className={`${styles.section} ${styles.sectionLight}`}>
         <div className={styles.container}>
           <h2 className={styles.sectionTitle}>Our Premium Services</h2>
           <p className={styles.sectionSubtitle}>
@@ -380,6 +405,31 @@ const Services = () => {
             </div>
           </div>
         </div>
+      </section> */}
+      <section className={styles.offersSection}>
+        <h2 className={styles.sectionTitle}>Our Services</h2>
+        <p className={styles.sectionSubtitle}>Handpicked deals for unforgettable experiences</p>
+
+        <div className={styles.offersGrid}>
+          {offers.map(offer => (
+            <div key={offer.id} className={styles.offerCard}>
+              <img
+                src={offer.image}
+                alt={offer.title}
+                className={styles.offerImage}
+              />
+              {/* <div className={styles.offerContent}>
+              <h3 className={styles.offerTitle}>{offer.title}</h3>
+              <p className={styles.offerDescription}>{offer.description}</p>
+              <div className={styles.offerMeta}>
+                <span className={styles.offerPrice}>From {offer.price}</span>
+                <button className={styles.offerButton}>Book Now</button>
+              </div>
+            </div> */}
+            </div>
+          ))}
+        </div>
+
       </section>
 
       {/* How It Works Section */}
@@ -389,7 +439,7 @@ const Services = () => {
           <p className={styles.sectionSubtitle}>
             Booking your travel with us is quick, easy, and hassle-free. Follow these simple steps to get started.
           </p>
-          
+
           <div className={styles.howItWorks}>
             <div className={styles.stepCard}>
               <div className={styles.stepNumber}>1</div>
@@ -401,7 +451,7 @@ const Services = () => {
                 Enter your destination, dates, and preferences to find the perfect options for your trip.
               </p>
             </div>
-            
+
             <div className={styles.stepCard}>
               <div className={styles.stepNumber}>2</div>
               <div className={styles.stepIcon}>
@@ -412,7 +462,7 @@ const Services = () => {
                 Compare prices, reviews, and features to choose the best option that suits your needs.
               </p>
             </div>
-            
+
             <div className={styles.stepCard}>
               <div className={styles.stepNumber}>3</div>
               <div className={styles.stepIcon}>
@@ -423,7 +473,7 @@ const Services = () => {
                 Securely book and pay for your selection using our easy payment options.
               </p>
             </div>
-            
+
             <div className={styles.stepCard}>
               <div className={styles.stepNumber}>4</div>
               <div className={styles.stepIcon}>
@@ -441,11 +491,11 @@ const Services = () => {
       {/* Benefits Section */}
       <section className={`${styles.section} ${styles.sectionGreen}`}>
         <div className={styles.container}>
-          <h2 className={`${styles.sectionTitle} ${styles.sectionTitleLight}`}>Why Choose Us</h2>
-          <p className={styles.sectionSubtitle}>
+          <h2 className={`${styles.sectionTitle} ${styles.sectionTitleLight}`} style={{color:'#fff'}}>Why Choose Us</h2>
+          <p className={styles.sectionSubtitle} style={{color:'#fff'}}>
             We strive to provide the best travel experience for our customers. Here's why millions of travelers choose us.
           </p>
-          
+
           <div className={styles.benefitsGrid}>
             <div className={styles.benefitItem}>
               <div className={styles.benefitIcon}>
@@ -456,7 +506,7 @@ const Services = () => {
                 We offer the best prices in the market, and if you find a better deal, we'll match it.
               </p>
             </div>
-            
+
             <div className={styles.benefitItem}>
               <div className={styles.benefitIcon}>
                 <Shield size={48} />
@@ -466,7 +516,7 @@ const Services = () => {
                 Your personal and payment information is protected with industry-standard security measures.
               </p>
             </div>
-            
+
             <div className={styles.benefitItem}>
               <div className={styles.benefitIcon}>
                 <Clock size={48} />
@@ -476,7 +526,7 @@ const Services = () => {
                 Our customer support team is available round the clock to assist you with any queries.
               </p>
             </div>
-            
+
             <div className={styles.benefitItem}>
               <div className={styles.benefitIcon}>
                 <Percent size={48} />
@@ -486,7 +536,7 @@ const Services = () => {
                 Access exclusive deals and discounts that you won't find anywhere else.
               </p>
             </div>
-            
+
             <div className={styles.benefitItem}>
               <div className={styles.benefitIcon}>
                 <Heart size={48} />
@@ -496,7 +546,7 @@ const Services = () => {
                 We tailor our recommendations based on your preferences and past bookings.
               </p>
             </div>
-            
+
             <div className={styles.benefitItem}>
               <div className={styles.benefitIcon}>
                 <Headphones size={48} />
@@ -511,7 +561,7 @@ const Services = () => {
       </section>
 
       {/* Compare Plans Section */}
-      <section className={`${styles.section} ${styles.sectionLight}`}>
+      {/* <section className={`${styles.section} ${styles.sectionLight}`}>
         <div className={styles.container}>
           <h2 className={styles.sectionTitle}>Compare Our Services</h2>
           <p className={styles.sectionSubtitle}>
@@ -585,7 +635,7 @@ const Services = () => {
             </tbody>
           </table>
         </div>
-      </section>
+      </section> */}
 
       {/* Testimonials Section */}
       {/* <section className={`${styles.section} ${styles.sectionDark}`}>
@@ -791,9 +841,9 @@ const Services = () => {
           <button onClick={openPopup} className={styles.ctaButton}>Book Your Trip Now</button>
         </div>
       </section>
-      <RegistrationPopup isOpen={isPopupOpen} onClose={closePopup}/>
+      <RegistrationPopup isOpen={isPopupOpen} onClose={closePopup} />
 
-    </div>  
+    </div>
   );
 };
 

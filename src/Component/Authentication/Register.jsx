@@ -3,14 +3,11 @@ import { X } from 'lucide-react';
 import './RegistrationPopup.css';
 import { SignUp } from '../../services/user.service';
 
-// interface RegistrationPopupProps {
-//   isOpen: boolean;
-//   onClose: () => void;
-// }
 
 const RegistrationPopup = ({ isOpen, onClose }) => {
   const [currentStep, setCurrentStep] = useState(1);
   const [errors, setErrors] = useState({});
+  const [paymentCompleted, setPaymentCompleted] = useState(false);
   const [formData, setFormData] = useState({
     // Personal details
     name: '',
@@ -19,23 +16,26 @@ const RegistrationPopup = ({ isOpen, onClose }) => {
     fatherName: '',
     motherName: '',
     nationality: '',
+    email: '',
+    number: '',
     aadharNo: '',
     passportNumber: '',
     passportExpiry: '',
-    
+
     // Address details
     city: '',
     state: '',
     pincode: '',
     address: '',
-    
+
     // Emergency contact details
     emergencyContactName: '',
     emergencyContactNo: '',
     emergencyContactAddress: '',
-    
+
     // Declaration
     declaration: false,
+    paymentStatus: false,
   });
 
   const validateStep = () => {
@@ -44,10 +44,14 @@ const RegistrationPopup = ({ isOpen, onClose }) => {
       if (!formData.name) newErrors.name = 'Full Name is required';
       if (!formData.dob) newErrors.dob = 'Date of Birth is required';
       if (!formData.gender) newErrors.gender = 'Gender is required';
+      if (!formData.number) newErrors.number = 'Phone is required';
+      if (!formData.email) newErrors.email = 'Email is required';
       if (!formData.fatherName) newErrors.fatherName = "Father's Name is required";
       if (!formData.motherName) newErrors.motherName = "Mother's Name is required";
       if (!formData.nationality) newErrors.nationality = 'Nationality is required';
       if (!formData.aadharNo) newErrors.aadharNo = 'Aadhar Number is required';
+      if (!formData.passportExpiry) newErrors.passportExpiry = 'Passport Expiry is required';
+      if (!formData.passportNumber) newErrors.passportNumber = 'Passport Number is required';
     }
     if (currentStep === 2) {
       if (!formData.address) newErrors.address = 'Complete Address is required';
@@ -69,37 +73,53 @@ const RegistrationPopup = ({ isOpen, onClose }) => {
 
 
   console.log(formData);
+
+
   const handleChange = (e) => {
     const { name, value, type } = e.target;
-    
+
     setFormData({
       ...formData,
       [name]: type === 'checkbox' ? (e.target).checked : value,
     });
   };
 
-    const handleSubmit = async (e) => {
-      e.preventDefault(); // Prevent form reload
-      if (validateStep()){
+  const handlePayment = async () => {
+    try {
+      // Simulating a payment request
+      const response = await axios.post("/api/payment", { amount: 500 });
+      if (response.data.success) {
+        alert("Payment successful!");
+        setFormData({ ...formData, paymentStatus: true });
+      }
+    } catch (error) {
+      alert("Payment failed. Try again.");
+    }
+  };
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent form reload
+    if (validateStep()) {
       try {
         const response = await SignUp(formData); // Call API function
         console.log("Success:", response);
-        alert("User created successfully!"); // Show success message
+        alert("User Registered successfully!"); // Show success message
       } catch (error) {
         console.error("Error creating user:", error.response?.data || error.message);
-        alert(error.response?.data?.message || "Failed to create user."); // Show error message
+        alert(error.response?.data?.message || "Failed to register user."); // Show error message
       }
-      }
-      onClose(); // Close modal/form after submission
-    };
-    
-    
+    }
+    onClose(); // Close modal/form after submission
+  };
 
-    const nextStep = () => {
-      if (validateStep()) {
-        setCurrentStep(currentStep + 1);
-      }
-    };
+
+
+  const nextStep = () => {
+    if (validateStep()) {
+      setCurrentStep(currentStep + 1);
+    }
+  };
 
   const prevStep = () => {
     setCurrentStep(currentStep - 1);
@@ -116,37 +136,38 @@ const RegistrationPopup = ({ isOpen, onClose }) => {
             <X size={24} />
           </button>
         </div>
-        
+
         {/* Progress indicator */}
         <div className="progress-container">
           <div className="progress-steps">
-            {[1, 2, 3, 4].map((step) => (
+            {[1, 2, 3, 4,5].map((step) => (
               <div key={step} className="step-item">
                 <div className={`step-circle ${currentStep >= step ? 'active' : ''}`}>
                   {step}
                 </div>
                 <span className="step-label">
-                  {step === 1 ? 'Personal' : 
-                   step === 2 ? 'Address' : 
-                   step === 3 ? 'Emergency' : 'Declaration'}
+                  {step === 1 ? 'Personal' :
+                    step === 2 ? 'Address' :
+                      step === 3 ? 'Emergency' :
+                      step === 4 ? 'Declaration' : 'Payment'}
                 </span>
               </div>
             ))}
           </div>
           <div className="progress-bar">
-            <div 
+            <div
               className="progress-completed"
-              style={{ width: `${(currentStep - 1) * 33.33}%` }}
+              style={{ width: `${(currentStep - 1) * 25.5}%` }}
             ></div>
           </div>
         </div>
-        
+
         <form onSubmit={handleSubmit} className="registration-form">
           {/* Step 1: Personal Details */}
           {currentStep === 1 && (
             <div className="form-section">
               <h3 className="section-title">Personal Details</h3>
-              
+
               <div className="form-grid">
                 <div className="form-group">
                   <label htmlFor="name">Full Name*</label>
@@ -159,8 +180,9 @@ const RegistrationPopup = ({ isOpen, onClose }) => {
                     required
                     placeholder="Enter your full name"
                   />
+                  {errors.name && <p style={{ color: 'red' }} className="error-text">{errors.name}</p>}
                 </div>
-                
+
                 <div className="form-group">
                   <label htmlFor="dob">Date of Birth*</label>
                   <input
@@ -171,8 +193,9 @@ const RegistrationPopup = ({ isOpen, onClose }) => {
                     onChange={handleChange}
                     required
                   />
+                  {errors.dob && <p style={{ color: 'red' }} className="error-text">{errors.dob}</p>}
                 </div>
-                
+
                 <div className="form-group">
                   <label htmlFor="gender">Gender*</label>
                   <select
@@ -187,8 +210,10 @@ const RegistrationPopup = ({ isOpen, onClose }) => {
                     <option value="female">Female</option>
                     <option value="other">Other</option>
                   </select>
+                  {errors.gender && <p style={{ color: 'red' }} className="error-text">{errors.gender}</p>}
+
                 </div>
-                
+
                 <div className="form-group">
                   <label htmlFor="fatherName">Father's Name*</label>
                   <input
@@ -200,8 +225,10 @@ const RegistrationPopup = ({ isOpen, onClose }) => {
                     required
                     placeholder="Enter father's name"
                   />
+                  {errors.fatherName && <p style={{ color: 'red' }} className="error-text">{errors.fatherName}</p>}
+
                 </div>
-                
+
                 <div className="form-group">
                   <label htmlFor="motherName">Mother's Name*</label>
                   <input
@@ -213,8 +240,40 @@ const RegistrationPopup = ({ isOpen, onClose }) => {
                     required
                     placeholder="Enter mother's name"
                   />
+                  {errors.motherName && <p style={{ color: 'red' }} className="error-text">{errors.motherName}</p>}
+
                 </div>
-                
+
+                <div className="form-group">
+                  <label htmlFor="name">Number*</label>
+                  <input
+                    type="text"
+                    id="number"
+                    name="number"
+                    value={formData.number}
+                    onChange={handleChange}
+                    required
+                    placeholder="Enter your full name"
+                  />
+                  {errors.number && <p style={{ color: 'red' }} className="error-text">{errors.number}</p>}
+
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="name">Email*</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    placeholder="Enter your full name"
+                  />
+                  {errors.email && <p style={{ color: 'red' }} className="error-text">{errors.email}</p>}
+
+                </div>
+
                 <div className="form-group">
                   <label htmlFor="nationality">Nationality*</label>
                   <input
@@ -226,8 +285,10 @@ const RegistrationPopup = ({ isOpen, onClose }) => {
                     required
                     placeholder="Enter your nationality"
                   />
+                  {errors.nationality && <p style={{ color: 'red' }} className="error-text">{errors.nationality}</p>}
+
                 </div>
-                
+
                 <div className="form-group">
                   <label htmlFor="aadharNo">Aadhar Number*</label>
                   <input
@@ -240,8 +301,10 @@ const RegistrationPopup = ({ isOpen, onClose }) => {
                     placeholder="XXXX-XXXX-XXXX"
                     maxLength={14}
                   />
+                  {errors.aadharNo && <p style={{ color: 'red' }} className="error-text">{errors.aadharNo}</p>}
+
                 </div>
-                
+
                 <div className="form-group">
                   <label htmlFor="passportNumber">Passport Number</label>
                   <input
@@ -252,8 +315,10 @@ const RegistrationPopup = ({ isOpen, onClose }) => {
                     onChange={handleChange}
                     placeholder="Enter passport number"
                   />
+                  {errors.passportNumber && <p style={{ color: 'red' }} className="error-text">{errors.passportNumber}</p>}
+
                 </div>
-                
+
                 <div className="form-group">
                   <label htmlFor="passportExpiry">Passport Expiry Date</label>
                   <input
@@ -263,16 +328,18 @@ const RegistrationPopup = ({ isOpen, onClose }) => {
                     value={formData.passportExpiry}
                     onChange={handleChange}
                   />
+                  {errors.passportExpiry && <p style={{ color: 'red' }} className="error-text">{errors.passportExpiry}</p>}
+
                 </div>
               </div>
             </div>
           )}
-          
+
           {/* Step 2: Address Details */}
           {currentStep === 2 && (
             <div className="form-section">
               <h3 className="section-title">Address Details</h3>
-              
+
               <div className="form-grid">
                 <div className="form-group full-width">
                   <label htmlFor="address">Complete Address*</label>
@@ -285,8 +352,10 @@ const RegistrationPopup = ({ isOpen, onClose }) => {
                     placeholder="Enter your complete address"
                     rows={3}
                   />
+                  {errors.address && <p style={{ color: 'red' }} className="error-text">{errors.address}</p>}
+
                 </div>
-                
+
                 <div className="form-group">
                   <label htmlFor="city">City*</label>
                   <input
@@ -298,8 +367,10 @@ const RegistrationPopup = ({ isOpen, onClose }) => {
                     required
                     placeholder="Enter your city"
                   />
+                  {errors.city && <p style={{ color: 'red' }} className="error-text">{errors.city}</p>}
+
                 </div>
-                
+
                 <div className="form-group">
                   <label htmlFor="state">State*</label>
                   <input
@@ -311,8 +382,10 @@ const RegistrationPopup = ({ isOpen, onClose }) => {
                     required
                     placeholder="Enter your state"
                   />
+                  {errors.state && <p style={{ color: 'red' }} className="error-text">{errors.state}</p>}
+
                 </div>
-                
+
                 <div className="form-group">
                   <label htmlFor="pincode">Pincode*</label>
                   <input
@@ -325,16 +398,18 @@ const RegistrationPopup = ({ isOpen, onClose }) => {
                     placeholder="Enter pincode"
                     maxLength={6}
                   />
+                  {errors.pincode && <p style={{ color: 'red' }} className="error-text">{errors.pincode}</p>}
+
                 </div>
               </div>
             </div>
           )}
-          
+
           {/* Step 3: Emergency Contact Details */}
           {currentStep === 3 && (
             <div className="form-section">
               <h3 className="section-title">Emergency Contact Details</h3>
-              
+
               <div className="form-grid">
                 <div className="form-group">
                   <label htmlFor="emergencyContactName">Contact Name*</label>
@@ -347,8 +422,10 @@ const RegistrationPopup = ({ isOpen, onClose }) => {
                     required
                     placeholder="Enter emergency contact name"
                   />
+                  {errors.emergencyContactName && <p style={{ color: 'red' }} className="error-text">{errors.emergencyContactName}</p>}
+
                 </div>
-                
+
                 <div className="form-group">
                   <label htmlFor="emergencyContactNo">Contact Number*</label>
                   <input
@@ -360,8 +437,10 @@ const RegistrationPopup = ({ isOpen, onClose }) => {
                     required
                     placeholder="Enter emergency contact number"
                   />
+                  {errors.emergencyContactNo && <p style={{ color: 'red' }} className="error-text">{errors.emergencyContactNo}</p>}
+
                 </div>
-                
+
                 <div className="form-group full-width">
                   <label htmlFor="emergencyContactAddress">Contact Address*</label>
                   <textarea
@@ -373,21 +452,25 @@ const RegistrationPopup = ({ isOpen, onClose }) => {
                     placeholder="Enter emergency contact address"
                     rows={3}
                   />
+                  {errors.emergencyContactAddress && <p style={{ color: 'red' }} className="error-text">{errors.emergencyContactAddress}</p>}
+
                 </div>
               </div>
             </div>
           )}
-          
+
           {/* Step 4: Declaration */}
           {currentStep === 4 && (
             <div className="form-section">
               <h3 className="section-title">Declaration</h3>
-              
+
               <div className="declaration-container">
                 <p className="declaration-text">
                   I hereby declare that all the information provided by me in this form is true and correct to the best of my knowledge and belief. I understand that providing any false information or suppressing any material fact will render me liable to appropriate action as may be decided by Travelism.
                 </p>
-                
+                {errors.declaration && <p style={{ color: 'red' }} className="error-text">{errors.declaration}</p>}
+
+
                 <div className="form-group checkbox-group">
                   <input
                     type="checkbox"
@@ -405,35 +488,47 @@ const RegistrationPopup = ({ isOpen, onClose }) => {
             </div>
           )}
 
-{/* {errors && <p className="error-text" style={{color:'red'}}>Please fill all fields</p>} */}
-              
-          
+          {currentStep === 5 && (
+            <div>
+              {/* <h2>Step 5: Payment</h2> */}
+              <p className="section-title">Registration Fee: INR 500</p>
+              {/* <button type="button" onClick={handlePayment} disabled={formData.paymentStatus}>
+                {formData.paymentStatus ? "Payment Completed" : "Pay Now"}
+              </button> */}
+              {/* <button onClick={() => setStep(3)}>Previous</button>
+              <button type="submit">Save & Next</button> */}
+            </div>
+          )}
+          {/* {errors && <p className="error-text" style={{color:'red'}}>Please fill all fields</p>} */}
+
+
           <div className="form-buttons">
             {currentStep > 1 && (
-              <button 
-                type="button" 
+              <button
+                type="button"
                 onClick={prevStep}
                 className="btn-secondary"
               >
                 Previous
               </button>
             )}
-            
-            {currentStep < 4 ? (
-              <button 
-                type="button" 
+
+            {currentStep < 5 ? (
+              <button
+                type="button"
                 onClick={nextStep}
                 className="btn-primary"
               >
                 Next
               </button>
             ) : (
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 className="btn-submit"
                 disabled={!formData.declaration}
               >
-                Submit Registration
+                {/* Submit Registration */}
+                Pay Now
               </button>
             )}
           </div>

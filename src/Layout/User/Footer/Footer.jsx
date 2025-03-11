@@ -11,6 +11,7 @@ import {
   Mail 
 } from 'lucide-react';
 import styles from './Footer.module.css';
+import logo from '../../../assets/NewLogo.png'
 
 const Footer = () => {
     return (
@@ -18,8 +19,9 @@ const Footer = () => {
           <div className={styles.footerContent}>
             <div className={styles.footerColumn}>
               <div className={styles.footerLogo}>
-                <Plane className={styles.logoIcon} size={24} />
-                <span>Karwan Tours</span>
+                <img src={logo} style={{height:'50px',width:"auto"}} alt="" />
+                {/* <Plane className={styles.logoIcon} size={24} />
+                <span>Karwan Tours</span> */}
               </div>
               <p className={styles.footerDescription}>
                 Making travel planning simple, affordable, and hassle-free since 2025. Your trusted partner for all your travel needs.
@@ -33,16 +35,21 @@ const Footer = () => {
                 <a href="#" className={styles.columnLink}> <Link to='/' > Home</Link></a>
                 <a href="#" className={styles.columnLink}> <Link to='/about' > About Us</Link></a>
                 <a href="#" className={styles.columnLink}> <Link to='/services' > Services</Link></a>
-                <a href="#" className={styles.columnLink}> <Link to='/holiday' > Packages</Link></a>
+                <a href="#" className={styles.columnLink}> <Link to='/gallery' > Gallery</Link></a>
+                <a href="#" className={styles.columnLink}> <Link to='/contact' > Contact Us</Link></a>
               </div>
             </div>
             
             <div className={styles.footerColumn}>
               <h3 className={styles.columnTitle}>Support</h3>
               <div className={styles.columnLinks}>
-                <Link to="/contact" className={styles.columnLink}>Contact Us</Link>
+                <Link to="/privacyPolicy" className={styles.columnLink}>Privacy Policy</Link>
+                <Link to="/refundPolicy" className={styles.columnLink}>Refund Policy</Link>
+                <Link to="/shippingDelivery" className={styles.columnLink}>Shipping & Delivery</Link>
+                <Link to="/term" className={styles.columnLink}>Term & Condition</Link>
               </div>
             </div>
+            
             
             <div className={styles.footerColumn}>
               <h3 className={styles.columnTitle}>Contact</h3>
@@ -52,11 +59,11 @@ const Footer = () => {
               </div>
               <div className={styles.contactItem}>
                 <Phone size={18} className={styles.contactIcon} />
-                <span>7007583120</span>
+                <span>7617866811, 7617866822</span>
               </div>
-              <div className={styles.contactItem}>
+              <div  className={styles.contactItem}>
                 <Mail size={18} className={styles.contactIcon} />
-                <span>karwantours74@gmail.com</span>
+               <Link > <span>karwantours74@gmail.com</span> </Link>
               </div>
             </div>
           </div>

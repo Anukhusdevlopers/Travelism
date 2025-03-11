@@ -111,8 +111,8 @@ const About = () => {
             </div>
             
             <div className={styles.statItem}>
-              <div className={styles.statNumber}>500+</div>
-              <div className={styles.statTitle}>Airline Partners</div>
+              <div className={styles.statNumber}>5000+</div>
+              <div className={styles.statTitle}>Happy Employee</div>
             </div>
           </div>
         </div>
@@ -191,7 +191,7 @@ const About = () => {
       </section>
 
       {/* Leadership Team Section */}
-      <section className={`${styles.section} ${styles.sectionDark}`}>
+      {/* <section className={`${styles.section} ${styles.sectionDark}`}>
         <div className={styles.container}>
           <h2 className={styles.sectionTitle}>Our Leadership</h2>
           <p className={styles.sectionSubtitle}>
@@ -252,7 +252,7 @@ const About = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Awards Section */}
       <section className={`${styles.section} ${styles.sectionLight}`}>
@@ -271,13 +271,13 @@ const About = () => {
               <p className={styles.awardYear}>World Travel Awards, 2023</p>
             </div>
             
-            <div className={styles.award}>
+            {/* <div className={styles.award}>
               <div className={styles.awardIcon}>
                 <Award size={48} />
               </div>
               <h3 className={styles.awardTitle}>Most Innovative Travel App</h3>
               <p className={styles.awardYear}>Mobile App Awards, 2022</p>
-            </div>
+            </div> */}
             
             <div className={styles.award}>
               <div className={styles.awardIcon}>
@@ -521,7 +521,7 @@ const About = () => {
             Join millions of travelers who trust us for their travel needs. Start planning your next adventure today!
           </p>
           <div>
-            <button onClick={openPopup} className={styles.button}>Book Now</button>
+            <button onClick={openPopup} className={styles.button}>Apply Now</button>
             <Link to="/contact" className={`${styles.button} ${styles.buttonOutline}`} style={{ marginLeft: '15px' }}>Contact Us</Link>
           </div>
         </div>

@@ -18,11 +18,12 @@
     color: white;
     position: relative;
   }
+
   
   .heroContent {
     max-width: 800px;
     padding: 0 20px;
-    z-index: 1;
+    /* z-index: 1; */
   }
   
   .heroTitle {
@@ -39,6 +40,124 @@
     line-height: 1.5;
   }
   
+  .offersSection {
+    padding: 4rem 5%;
+    background-color: var(--light-gray);
+  }
+  
+  .sectionTitle {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+  }
+  
+  .sectionSubtitle {
+    text-align: center;
+    color: var(--dark-gray);
+    margin-bottom: 3rem;
+  }
+  
+  .offersGrid {
+    display: flex;
+    /* padding: 0 1rem; */
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+     gap: 2rem; gap: 2rem;
+  }
+  
+  .offerCard {
+    background-color: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    height: 250px;
+    width: 320px;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+  }
+  
+  .offerCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .offerImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .offerContent {
+    padding: 1.5rem;
+  }
+  
+  .offerTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  .offerDescription {
+    color: var(--dark-gray);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .offerMeta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .offerPrice {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 1.25rem;
+  }
+  
+  .offerButton {
+    padding: 0.5rem 1rem;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: var(--transition);
+  }
+  
+  .offerButton:hover {
+    background-color: #0062d6;
+  }
+  
+  .viewAllButton {
+    display: block;
+    margin: 3rem auto 0;
+    padding: 0.75rem 2rem;
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    font-weight: 500;
+    transition: var(--transition);
+  }
+  
+  .viewAllButton:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+  }
+  
+  @media (max-width: 768px) {
+    .offersSection {
+      padding: 3rem 1rem;
+    }
+    
+    .sectionTitle {
+      font-size: 1.75rem;
+    }
+  }
+
   .section {
     padding: 80px 20px;
   }

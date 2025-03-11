@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 import styles from "./Navbar.module.css";
 import { Link } from "react-router-dom";
-import img from "../../../assets/logo.jpg";
+import img from "../../../assets/NewLogo.png";
 
 const Navbar = ({ setIsPopupOpen }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -23,7 +23,7 @@ const Navbar = ({ setIsPopupOpen }) => {
     <nav className={styles.navbar}>
       <div className={styles.logo}>
         <span>
-          <img src={img} style={{ height: "80px", width: "auto" }} alt="" />
+          <img src={img} style={{ height: "55px", width: "auto" }} alt="" />
         </span>
       </div>
 
@@ -33,11 +33,12 @@ const Navbar = ({ setIsPopupOpen }) => {
           { path: "/", icon: <House size={16} />, label: "Home" },
           { path: "/about", label: "About" },
           { path: "/services", label: "Services" },
-          {
-            path: "/holiday",
-            icon: <Umbrella size={16} />,
-            label: "Packages",
-          },
+          { path: "/gallery", label: "Gallery" },
+          // {
+          //   path: "/holiday",
+          //   icon: <Umbrella size={16} />,
+          //   label: "Packages",
+          // },
           { path: "/contact", label: "Contact Us" },
         ].map((item) => (
           <Link key={`${item.path}-${item.label}`} to={item.path}>
@@ -81,11 +82,12 @@ const Navbar = ({ setIsPopupOpen }) => {
           { path: "/", icon: <House size={16} />, label: "Home" },
           { path: "/about", label: "About" },
           { path: "/services", label: "Services" },
-          {
-            path: "/holiday",
-            icon: <Umbrella size={16} />,
-            label: "Packages",
-          },
+          { path: "/gallery", label: "Gallery" },
+          // {
+          //   path: "/holiday",
+          //   icon: <Umbrella size={16} />,
+          //   label: "Packages",
+          // },
           { path: "/contact", icon: <House size={16} />, label: "Contact Us" },
         ].map((item) => (
             <Link
