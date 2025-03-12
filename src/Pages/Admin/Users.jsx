@@ -70,7 +70,7 @@ export default function Users() {
                   <th>Mother's Name</th>
                   <th>Nationality</th>
                   <th>Aadhar No</th>
-                  <th>Declaration</th>
+                  <th>Payment Status</th>
                 </tr>
               </thead>
               <tbody>
@@ -92,7 +92,7 @@ export default function Users() {
                       <td>
                         {"XXXX-XXXX-" + (user.aadharNo ? user.aadharNo.slice(-4) : "****")}
                       </td>
-                      <td>{user.declaration ? "✔" : "✘"}</td>
+                      <td>Pending</td>
                     </tr>
                   ))
                 ) : (
