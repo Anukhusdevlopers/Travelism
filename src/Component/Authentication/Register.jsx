@@ -21,7 +21,7 @@ const RegistrationPopup = ({ isOpen, onClose }) => {
     motherName: '',
     nationality: '',
     email: '',
-    number: '',
+    phone: '',
     aadharNo: '',
     passportNumber: '',
     passportExpiry: '',
@@ -44,36 +44,76 @@ const RegistrationPopup = ({ isOpen, onClose }) => {
 
   const validateStep = () => {
     let newErrors = {};
+  
+    // Helper functions for validation
+    const isValidName = (name) => /^[A-Za-z\s]+$/.test(name);
+    const isValidEmail = (email) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
+    const isValidPhone = (phone) => /^[6-9]\d{9}$/.test(phone);
+    const isValidAadhar = (aadhar) => /^\d{12}$/.test(aadhar);
+    const isValidPassport = (passport) => /^[A-Z][0-9]{7,8}$/.test(passport);
+    const isValidPincode = (pincode) => /^\d{6}$/.test(pincode);
+    const isFutureDate = (date) => new Date(date) > new Date();
+   
+  
     if (currentStep === 1) {
       if (!formData.name) newErrors.name = 'Full Name is required';
+      else if (!isValidName(formData.name)) newErrors.name = 'Invalid Name (Only letters allowed)';
+  
       if (!formData.dob) newErrors.dob = 'Date of Birth is required';
+     
+  
       if (!formData.gender) newErrors.gender = 'Gender is required';
-      if (!formData.number) newErrors.number = 'Phone is required';
+  
+      if (!formData.phone) newErrors.phone = 'Phone number is required';
+      else if (!isValidPhone(formData.phone)) newErrors.phone = 'Invalid phone number (must be 10 digits)';
+  
       if (!formData.email) newErrors.email = 'Email is required';
+      else if (!isValidEmail(formData.email)) newErrors.email = 'Invalid email format';
+  
       if (!formData.fatherName) newErrors.fatherName = "Father's Name is required";
+      else if (!isValidName(formData.fatherName)) newErrors.fatherName = "Invalid Name (Only letters allowed)";
+  
       if (!formData.motherName) newErrors.motherName = "Mother's Name is required";
+      else if (!isValidName(formData.motherName)) newErrors.motherName = "Invalid Name (Only letters allowed)";
+  
       if (!formData.nationality) newErrors.nationality = 'Nationality is required';
+  
       if (!formData.aadharNo) newErrors.aadharNo = 'Aadhar Number is required';
-      if (!formData.passportExpiry) newErrors.passportExpiry = 'Passport Expiry is required';
+      else if (!isValidAadhar(formData.aadharNo)) newErrors.aadharNo = 'Invalid Aadhar Number (must be 12 digits)';
+  
       if (!formData.passportNumber) newErrors.passportNumber = 'Passport Number is required';
+      else if (!isValidPassport(formData.passportNumber)) newErrors.passportNumber = 'Invalid Passport Number';
+  
+      if (!formData.passportExpiry) newErrors.passportExpiry = 'Passport Expiry is required';
+      else if (!isFutureDate(formData.passportExpiry)) newErrors.passportExpiry = 'Passport expiry date must be in the future';
     }
+  
     if (currentStep === 2) {
       if (!formData.address) newErrors.address = 'Complete Address is required';
       if (!formData.city) newErrors.city = 'City is required';
       if (!formData.state) newErrors.state = 'State is required';
       if (!formData.pincode) newErrors.pincode = 'Pincode is required';
+      else if (!isValidPincode(formData.pincode)) newErrors.pincode = 'Invalid Pincode (must be 6 digits)';
     }
+  
     if (currentStep === 3) {
       if (!formData.emergencyContactName) newErrors.emergencyContactName = 'Emergency Contact Name is required';
+      else if (!isValidName(formData.emergencyContactName)) newErrors.emergencyContactName = 'Invalid Name (Only letters allowed)';
+  
       if (!formData.emergencyContactNo) newErrors.emergencyContactNo = 'Emergency Contact Number is required';
+      else if (!isValidPhone(formData.emergencyContactNo)) newErrors.emergencyContactNo = 'Invalid phone number (must be 10 digits)';
+  
       if (!formData.emergencyContactAddress) newErrors.emergencyContactAddress = 'Emergency Contact Address is required';
     }
+  
     if (currentStep === 4) {
       if (!formData.declaration) newErrors.declaration = 'You must agree to the declaration';
     }
+  
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
+  
 
 
 
@@ -113,16 +153,12 @@ const RegistrationPopup = ({ isOpen, onClose }) => {
     setLoading(true);
     try {
       const orderData = {
-        order_id: `order_${Date.now()}`,
-        order_amount: 500,
-        order_currency: 'INR',
-        customer_details: {
-          customer_id: userDets._id,
-          customer_email: formData.email,
-          customer_phone:  formData.number,
-        },
+        amount:500,
+        id:userDets._id,
+        email:formData.email,
+        phone:formData.phone
       };
-      const response = await axios.post('http://localhost:8000/api/wallet/createPaymentOrder', orderData);
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/products/create-order`, orderData);
       const { payment_session_id } = response.data;
       if (payment_session_id) {
         const cashfree = new window.Cashfree(payment_session_id);
@@ -131,6 +167,7 @@ const RegistrationPopup = ({ isOpen, onClose }) => {
       
     onclose();
     } catch (error) {
+      // alert('Payment initiation error:', error);
       console.error('Payment initiation error:', error);
     }
     setLoading(false)
@@ -275,9 +312,9 @@ const RegistrationPopup = ({ isOpen, onClose }) => {
                     <label htmlFor="name">Number*</label>
                     <input
                       type="text"
-                      id="number"
-                      name="number"
-                      value={formData.number}
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
                       onChange={handleChange}
                       required
                       placeholder="Enter your full name"

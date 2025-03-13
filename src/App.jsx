@@ -17,6 +17,10 @@ import TermCondition from "./Pages/Policy/Term&Condition";
 import RefundPolicy from "./Pages/Policy/RefundPolicy";
 import Gallery from "./Pages/User/Gallery";
 import ShippingDelivery from "./Pages/Policy/ShippingDelivery";
+import PendingPayment from "./Pages/Admin/PendingPayment";
+import CompletedPayment from "./Pages/Admin/CompletedPayment";
+import Transactions from "./Pages/Admin/AllTransaction";
+import Orders from "./Pages/Admin/Orders";
   const App = () => {
   return (
     <div>
@@ -42,6 +46,10 @@ import ShippingDelivery from "./Pages/Policy/ShippingDelivery";
         <Route path="/admin" element={<AdminLayout />} >
           <Route index element={<Dashboard/>} />
           <Route path="user" element={<Users/>} />
+          <Route path="order" element={<Orders/>} />
+          <Route path="pending" element={<PendingPayment/>} />
+          <Route path="completed" element={<CompletedPayment/>} />
+          <Route path="transaction" element={<Transactions/>} />
           <Route path="contact-requests" element={<AdminContact />} />
         </Route>
 

@@ -39,7 +39,7 @@ export default function AdminContact() {
 
     return (
         <div className={styles.container}>
-            <h2 className={styles.heading}>Contact Requests</h2>
+            <h2 className={styles.heading}>Contact Queries</h2>
             <table className={styles.table}>
                 <thead>
                     <tr>

@@ -2,7 +2,7 @@ import React from "react";
 import "./Header.css";
 import { useNavigate } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ toggleSidebar }) => {
   const navigate = useNavigate();
 
   const handleLogout = ()=>{
@@ -12,7 +12,9 @@ const Header = () => {
   return (
     <header className="header">
       
-
+      {/* <button className="menu-toggle" onClick={toggleSidebar}>
+        <FontAwesomeIcon icon={faBars} />
+      </button> */}
       {/* Page Title */}
       <h2 className="title">Welcome to Admin Panel</h2>
 
