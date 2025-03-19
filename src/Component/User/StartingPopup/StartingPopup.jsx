@@ -8,7 +8,7 @@ const StartingPopup = ({ onclose }) => {
     <div className="modal-overlay" onClick={onclose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
-          <button onClick={onclose} className="close-button">
+          <button onClick={onclose} className="banner-close-button">
             <X size={22} />
           </button>
         </div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { X } from 'lucide-react';
 import './RegistrationPopup.css';
 import { SignUp } from '../../services/user.service';
@@ -6,12 +6,15 @@ import axios from 'axios';
 
 
 const RegistrationPopup = ({ isOpen, onClose }) => {
+  
+  const [amount, setAmount] = useState(500);
+  const [razorpayLoaded, setRazorpayLoaded] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
   const [loading,setLoading] = useState(false);
   const [userDets,setUserDets] = useState();
   const [errors, setErrors] = useState({});
   const [paymentCompleted, setPaymentCompleted] = useState(false);
-  const [showHandlePayment,setShowHandlePayment] = useState(false);
+  const [showHandlePayment,setShowHandlePayment] = useState(true);
   const [formData, setFormData] = useState({
     // Personal details
     name: '',
@@ -148,30 +151,78 @@ const RegistrationPopup = ({ isOpen, onClose }) => {
     // onClose(); // Close modal/form after submission
   };
 
-  const handlePayment = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    try {
-      const orderData = {
-        amount:500,
-        id:userDets._id,
-        email:formData.email,
-        phone:formData.phone
+  const loadRazorpay = async () => {
+    return new Promise((resolve) => {
+      if (document.querySelector("script[src='https://checkout.razorpay.com/v1/checkout.js']")) {
+        setRazorpayLoaded(true);
+        resolve(true);
+        return;
+      }
+      const script = document.createElement("script");
+      script.src = "https://checkout.razorpay.com/v1/checkout.js";
+      script.async = true;
+      script.onload = () => {
+        setRazorpayLoaded(true);
+        resolve(true);
       };
-      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/products/create-order`, orderData);
-      const { payment_session_id } = response.data;
-      if (payment_session_id) {
-        const cashfree = new window.Cashfree(payment_session_id);
-        cashfree.redirect();
-      } 
-      
-    onclose();
-    } catch (error) {
-      // alert('Payment initiation error:', error);
-      console.error('Payment initiation error:', error);
-    }
-    setLoading(false)
+      script.onerror = () => {
+        resolve(false);
+      };
+      document.body.appendChild(script);
+    });
   };
+
+  const handlePayment = async (e) => {
+    e.preventDefault(); // Prevent form submission
+
+    if (!razorpayLoaded) {
+      alert("Razorpay SDK not loaded. Please try again.");
+      return;
+    }
+
+    try {
+      const { data } = await axios.post("https://anu-tour-travel-4.onrender.com/api/products/createOrder",{
+        id : userDets._id
+      });
+
+      const options = {
+        key: "rzp_live_oEYY", // Replace with your test key
+        amount: data.amount,
+        currency: data.currency,
+        name: "Karwan International Tours",
+        description: "Payment Transaction",
+        order_id: data.id,
+        handler: async (response) => {
+          try {
+            const verifyRes = await axios.post("https://anu-tour-travel-4.onrender.com/api/products/verifyPayment", response);
+            alert(verifyRes.data.message);
+          } catch (error) {
+            console.error("Verification error", error);
+            alert("Payment verification failed!");
+          }
+        },
+        prefill: {
+          name: formData.name,
+          email: formData.email,
+          contact: formData.phone,
+        },
+        theme: {
+          color: "#3399cc",
+        },
+      };
+
+      const razor = new window.Razorpay(options);
+      razor.open();
+    } catch (error) {
+      console.error("Payment error", error);
+      alert("Something went wrong!");
+    }
+  };
+
+  useEffect(() => {
+    loadRazorpay();
+  }, []);
+
 
 
 
