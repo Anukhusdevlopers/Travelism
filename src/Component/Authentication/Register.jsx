@@ -14,7 +14,7 @@ const RegistrationPopup = ({ isOpen, onClose }) => {
   const [userDets,setUserDets] = useState();
   const [errors, setErrors] = useState({});
   const [paymentCompleted, setPaymentCompleted] = useState(false);
-  const [showHandlePayment,setShowHandlePayment] = useState(true);
+  const [showHandlePayment,setShowHandlePayment] = useState(false);
   const [formData, setFormData] = useState({
     // Personal details
     name: '',
@@ -181,12 +181,12 @@ const RegistrationPopup = ({ isOpen, onClose }) => {
     }
 
     try {
-      const { data } = await axios.post("https://anu-tour-travel-4.onrender.com/api/products/createOrder",{
-        id : userDets._id
+      const { data } = await axios.post("http://localhost:7000/api/products/createOrder",{
+        id : userDets._id 
       });
 
       const options = {
-        key: "rzp_live_oEYY", // Replace with your test key
+        key: "rzp_live_oEY", // Replace with your test key
         amount: data.amount,
         currency: data.currency,
         name: "Karwan International Tours",
@@ -194,7 +194,7 @@ const RegistrationPopup = ({ isOpen, onClose }) => {
         order_id: data.id,
         handler: async (response) => {
           try {
-            const verifyRes = await axios.post("https://anu-tour-travel-4.onrender.com/api/products/verifyPayment", response);
+            const verifyRes = await axios.post("http://localhost:7000/api/products/verifyPayment", response);
             alert(verifyRes.data.message);
           } catch (error) {
             console.error("Verification error", error);
